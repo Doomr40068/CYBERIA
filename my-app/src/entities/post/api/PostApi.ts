@@ -1,4 +1,4 @@
-import { apiclient } from '@/shared/api/api-client';
+import { apiclient } from '@/shared/api/ApiClient';
 import { Posts, PostsResponse } from '@/entities/post/model/types';
 
 class PostsApi {

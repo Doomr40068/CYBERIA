@@ -1,4 +1,4 @@
-import { apiclient } from '@/shared/api/api-client';
+import { apiclient } from '@/shared/api/ApiClient';
 import { Contacts, ContactsResponse } from '@/entities/contact/model/types';
 
 class ContactApi {

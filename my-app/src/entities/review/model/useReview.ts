@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { Review } from '@/entities/review/model/types';
-import { reviewAPI } from '@/entities/review/api/review-api';
+import { reviewAPI } from '@/entities/review/api/ReviewApi';
 
 export function useReview() {
     const [projects, setProjects] = useState<Review[]>([]);

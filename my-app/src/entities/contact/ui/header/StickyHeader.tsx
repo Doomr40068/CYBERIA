@@ -95,17 +95,20 @@ export function StickyHeader({ show, contacts }: StickyHeaderProps) {
                     <SheetTrigger asChild>
                         <button className="md:hidden p-2 -mr-2">
                             <div className="flex gap-1.5">
-                                <a href={contactsMap.telegram} className="text-3xl" target="_blank">
-                                    <RiTelegramLine className="text-3xl fill-white " />
+                                <a href={contactsMap.telegram} target="_blank">
+                                    <RiTelegramLine className="text-3xl" />
                                 </a>
                                 <Menu size={28} className="text-white" />
                             </div>
                         </button>
                     </SheetTrigger>
 
-                    <SheetContent side="right" className="bg-[#2D41F9] !max-w-none !w-full">
+                    <SheetContent
+                        side="right"
+                        className="bg-[#2D41F9] !max-w-none text-white !w-full"
+                    >
                         <div className="flex flex-col gap-8 mt-10">
-                            <div className="bg-white rounded-2xl mb-1.5 !mt-[36px] !mx-[15px] !p-5 ">
+                            <div className="bg-white rounded-2xl text-black mb-1.5 !mt-9 !mx-4 !p-5 ">
                                 <nav className="flex flex-col gap-6 text-lg font-medium">
                                     <Link href="/projects" className="hover:text-blue-600">
                                         Проекты
@@ -131,7 +134,7 @@ export function StickyHeader({ show, contacts }: StickyHeaderProps) {
                                 </nav>
                             </div>
 
-                            <div className="flex rounded-2xl !p-6 !mx-[15px] bg-black flex-col gap-3 mb-1.5 ">
+                            <div className="flex rounded-2xl !p-6 bg-black !mx-4 flex-col gap-3 mb-1.5 ">
                                 <div>
                                     <h4 className="text-2xl text-white font-bold">
                                         {contactsMap.phone}
@@ -152,7 +155,7 @@ export function StickyHeader({ show, contacts }: StickyHeaderProps) {
                                     </a>
                                 </div>
                             </div>
-                            <button className="bg-[#9E70FF] text-white text-[18px] !px-[65px] !py-[19px] !mb-[36px] rounded-2xl">
+                            <button className="bg-[#9E70FF] text-white text-2xl !mx-4 !px-14 !py-5 !mb-9 rounded-2xl">
                                 Обсудить проект
                             </button>
                         </div>

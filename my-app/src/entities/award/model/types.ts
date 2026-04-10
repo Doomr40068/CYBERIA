@@ -1,4 +1,4 @@
-import type { Image } from '@/shared/types/common';
+import type { Image } from '@/shared/types/Common';
 import type { Project } from '@/entities/projects/model/types';
 
 export interface Award {

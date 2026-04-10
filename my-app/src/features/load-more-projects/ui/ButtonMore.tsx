@@ -12,6 +12,7 @@ export function ButtonMore({ onClick, isLoading, hasMore }: ButtonMoreProps) {
     return (
         <div className="flex justify-center mt-8">
             <button
+                type="button"
                 onClick={onClick}
                 disabled={isLoading}
                 className="

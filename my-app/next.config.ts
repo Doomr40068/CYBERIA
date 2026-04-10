@@ -15,14 +15,6 @@ const nextConfig: NextConfig = {
                 port: '8000',
                 pathname: '/projects/**',
             },
-            {
-                protocol: 'https',
-                hostname: 'avatars.mds.yandex.net',
-            },
-            {
-                protocol: 'https',
-                hostname: '**',
-            },
         ],
         dangerouslyAllowSVG: true,
         unoptimized: process.env.NODE_ENV === 'development',

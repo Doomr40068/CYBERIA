@@ -15,7 +15,7 @@ interface FooterProps {
     contacts: Contacts[];
 }
 
-export default function Footer({ contacts }: FooterProps) {
+export default function Footers({ contacts }: FooterProps) {
     const c = Object.fromEntries(contacts.map((item) => [item.kay, item.value]));
 
     return (

@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { Unbounded } from 'next/font/google';
-import './globals.css';
-import Header from '@/entities/contact/ui/header';
-import Footer from '../entities/contact/ui/footer/footer';
-import { contactAPI } from '@/entities/contact/api/contacts-api';
+import '@/app/globals.css';
+import Header from '@/entities/contact/ui/header/Index';
+import { contactAPI } from '@/entities/contact/api/ContactsApi';
+import Footers from '@/entities/contact/ui/footer/Footer';
 
 const unboundedSemiBold = Unbounded({
     subsets: ['latin', 'cyrillic'],
@@ -26,7 +26,7 @@ export default async function RootLayout({
             <body className="!p-5">
                 <Header contacts={contacts} />
                 {children}
-                <Footer contacts={contacts} />
+                <Footers contacts={contacts} />
             </body>
         </html>
     );

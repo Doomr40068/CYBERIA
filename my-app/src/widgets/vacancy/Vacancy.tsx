@@ -16,7 +16,10 @@ export function Vacantion() {
                             </p>
 
                             <div className="!mt-8 flex lg:flex-row flex-col font-['Wix_Madefor_Text'] items-center gap-4">
-                                <button className="bg-blue-600 hover:bg-blue-700 transition-colors text-white !px-4 !py-3.5  rounded-full text-sm ">
+                                <button
+                                    type="button"
+                                    className="bg-blue-600 hover:bg-blue-700 transition-colors text-white !px-4 !py-3.5  rounded-full text-sm "
+                                >
                                     Подробнее
                                 </button>
                                 <a

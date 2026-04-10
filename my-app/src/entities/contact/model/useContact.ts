@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { Contacts } from '@/entities/contact/model/types';
-import { contactAPI } from '@/entities/contact/api/contacts-api';
+import { contactAPI } from '@/entities/contact/api/ContactsApi';
 
 export function useContact() {
     const [projects, setProjects] = useState<Contacts[]>([]);

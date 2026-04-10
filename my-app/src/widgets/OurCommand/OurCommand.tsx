@@ -1,15 +1,22 @@
+import Image from 'next/image';
+
 export function OurCommand() {
     return (
-        <div className="!py-10 !px-8 flex gap-10 rounded-4xl bg-gradient-to-bl from-[#08158A] via-[#1A2ABE] via-[#2D41F9] via-[#8793FC] to-[#F0F1FF]">
-            <div className="w-[50%]">
+        <div className="!py-10 !px-20 lg:flex-row flex flex-col items-center text-center justify-center lg:gap-10 rounded-4xl bg-gradient-to-bl from-[#08158A] via-[#1A2ABE] via-[#2D41F9] via-[#8793FC] to-[#F0F1FF]">
+            <div className="lg:w-2/5">
                 <h1 className="font-bold !mb-5 text-white text-6xl">Наша команда</h1>
-                <h3 className="text-white text-[16px] font-light ">
+                <h3 className="text-white lg:w-3/5 w-full font-['Wix_Madefor_Text'] text-2xl font-light ">
                     Благодаря многолетнему опыту мы гибко используем современные методологии
                     разработки — Scrum, Agile, Lean, Kanban, применяя и адаптируя их под нужды
                     проекта
                 </h3>
-                <button className="text-white !mt-5 !px-7 !py-3 !text-[15px]">Подробнее</button>
-                <div className="grid grid-cols-2 grid-rows-2 !mt-[60px] gap-6">
+                <button
+                    type="button"
+                    className="text-white font-['Wix_Madefor_Text'] bg-black rounded-3xl !mt-5 !px-7 !py-3 text-sm"
+                >
+                    Подробнее
+                </button>
+                <div className="grid grid-cols-2 grid-rows-2 !mt-14 gap-16">
                     <div>
                         <h3
                             className="text-7xl 
@@ -63,6 +70,35 @@ export function OurCommand() {
                             реализованных проектов
                         </h3>
                     </div>
+                </div>
+            </div>
+            <div className="flex lg:w-2/6 md:5/6 w-full flex-col lg:-mb-35 justify-center">
+                <div className="flex justify-end z-30 !-mb-10">
+                    <Image
+                        src="/20240626-MKXO6518_resized 2.png"
+                        alt="Контакты"
+                        width={300}
+                        height={250}
+                    />
+                </div>
+
+                <div>
+                    <Image
+                        src="/20240626-MKXO6218_resized 2.png"
+                        alt="Контакты"
+                        width={400}
+                        height={400}
+                    />
+                </div>
+
+                <div className="flex justify-end !-mt-25">
+                    <Image
+                        className=""
+                        src="/20240626-MKXO6247_resized 2.png"
+                        alt="Контакты"
+                        width={300}
+                        height={250}
+                    />
                 </div>
             </div>
         </div>

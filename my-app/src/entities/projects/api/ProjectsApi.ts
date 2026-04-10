@@ -1,4 +1,4 @@
-import { apiclient } from '@/shared/api/api-client';
+import { apiclient } from '@/shared/api/ApiClient';
 import type { Project, ProjectResponse } from '@/entities/projects/model/types';
 
 class ProjectApi {

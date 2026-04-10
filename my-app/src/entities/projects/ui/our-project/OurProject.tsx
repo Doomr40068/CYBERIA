@@ -127,7 +127,7 @@ export function OurProject() {
                         {projects.map((el) => (
                             <div key={el.id} className="flex flex-col gap-4">
                                 <Image
-                                    className="rounded-4xl w-full h-auto object-cover"
+                                    className="rounded-4xl w-full h-full object-cover"
                                     src={el.image?.original_url}
                                     alt={el.title || 'Project'}
                                     width={300}
@@ -145,25 +145,27 @@ export function OurProject() {
                     <ButtonMore onClick={loadMore} isLoading={isLoading} hasMore={hasMore} />
                 </TabsContent>
 
-                <TabsContent value="crm" className="mt-6">
-                    <div className="text-center p-8">Контент CRM скоро появится</div>
+                <TabsContent value="crm" className="!mt-6">
+                    <div className="text-center !p-8">Контент CRM скоро появится</div>
                 </TabsContent>
-                <TabsContent value="eshop" className="mt-6">
-                    <div className="text-center p-8">Контент магазинов скоро появится</div>
+                <TabsContent value="eshop" className="!mt-6">
+                    <div className="text-center !p-8">Контент магазинов скоро появится</div>
                 </TabsContent>
-                <TabsContent value="corporate" className="mt-6">
-                    <div className="text-center p-8">
+                <TabsContent value="corporate" className="!mt-6">
+                    <div className="text-center !p-8">
                         Контент корпоративных сайтов скоро появится
                     </div>
                 </TabsContent>
-                <TabsContent value="marketplace" className="mt-6">
-                    <div className="text-center p-8">OZON и другие маркетплейсы скоро появятся</div>
+                <TabsContent value="marketplace" className="!mt-6">
+                    <div className="text-center !p-8">
+                        OZON и другие маркетплейсы скоро появятся
+                    </div>
                 </TabsContent>
-                <TabsContent value="logic" className="mt-6">
-                    <div className="text-center p-8">Логические сервисы скоро появятся</div>
+                <TabsContent value="logic" className="!mt-6">
+                    <div className="text-center !p-8">Логические сервисы скоро появятся</div>
                 </TabsContent>
-                <TabsContent value="else_project" className="mt-6">
-                    <div className="text-center p-8">Другие наши проекты скоро появятся</div>
+                <TabsContent value="else_project" className="!mt-6">
+                    <div className="text-center !p-8">Другие наши проекты скоро появятся</div>
                 </TabsContent>
             </Tabs>
         </div>

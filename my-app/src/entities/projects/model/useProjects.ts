@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect, useCallback } from 'react';
 import { Project } from '@/entities/projects/model/types';
-import { projectAPI } from '@/entities/projects/api/projects-api';
+import { projectAPI } from '@/entities/projects/api/ProjectsApi';
 
 export function useProjects() {
     const [projects, setProjects] = useState<Project[]>([]);

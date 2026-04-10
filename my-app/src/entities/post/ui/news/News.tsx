@@ -16,13 +16,15 @@ export function News({ news }: NewsProps) {
                         className="bg-white !p-5 rounded-4xl gap-5 flex flex-col justify-between"
                     >
                         <div className="flex flex-col gap-[8px]">
-                            <Image
-                                className="w-full rounded-4xl"
-                                src={item.image_preview}
-                                alt={item.title}
-                                width={388}
-                                height={240}
-                            />
+                            <div className="w-full h-72 overflow-hidden rounded-4xl">
+                                <Image
+                                    src={item.image_preview}
+                                    alt={item.title}
+                                    width={388}
+                                    height={288}
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
                             <h3 className="font-bold lg:text-3xl text-[22px]  ">{item.title}</h3>
                             <h3 className="font-['Wix_Madefor_Text'] font-medium text-[18px]">
                                 {item.description}

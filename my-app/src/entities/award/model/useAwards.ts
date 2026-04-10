@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { awardAPI } from '@/entities/award/api/awards-api';
+import { awardAPI } from '@/entities/award/api/AwardsApi';
 import type { Award } from '@/entities/award/model/types';
 
 export function useAwards() {
