@@ -1,25 +1,15 @@
+'use client';
+
 import { RiTelegramLine } from 'react-icons/ri';
 import { BiLogoVk } from 'react-icons/bi';
-import { Contacts } from '@/entities/contact/model/types';
+import { useContactsContext } from '@/entities/contact/model/ContactContext';
 import { FaWhatsapp } from 'react-icons/fa6';
 import { Menu } from 'lucide-react';
-import {
-    Sheet,
-    SheetClose,
-    SheetContent,
-    SheetDescription,
-    SheetFooter,
-    SheetHeader,
-    SheetTitle,
-    SheetTrigger,
-} from '@/shared/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger } from '@/shared/ui/sheet';
 import Link from 'next/link';
 
-interface ContactsProps {
-    contacts: Contacts[];
-}
-
-export function MainHeader({ contacts }: ContactsProps) {
+export function MainHeader() {
+    const contacts = useContactsContext();
     const contactsMap = Object.fromEntries(contacts.map((item) => [item.kay, item.value]));
 
     return (
@@ -89,7 +79,11 @@ export function MainHeader({ contacts }: ContactsProps) {
                 <SheetTrigger asChild>
                     <button className="md:hidden p-2 -mr-2">
                         <div className="flex gap-1.5">
-                            <a href={contactsMap.telegram} target="_blank">
+                            <a
+                                href={contactsMap.telegram}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 <RiTelegramLine className="text-3xl" />
                             </a>
                             <Menu size={28} className="text-black" />
@@ -135,13 +129,21 @@ export function MainHeader({ contacts }: ContactsProps) {
                                 </h4>
                             </div>
                             <div className="flex gap-1 text-3xl pt-6">
-                                <a href={contactsMap.telegram} target="_blank">
+                                <a
+                                    href={contactsMap.telegram}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
                                     <RiTelegramLine className="fill-white transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
                                 </a>
-                                <a href={contactsMap.whatsapp} target="_blank">
+                                <a
+                                    href={contactsMap.whatsapp}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
                                     <FaWhatsapp className="fill-white transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
                                 </a>
-                                <a href={contactsMap.vk} target="_blank">
+                                <a href={contactsMap.vk} target="_blank" rel="noopener noreferrer">
                                     <BiLogoVk className="fill-white transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
                                 </a>
                             </div>

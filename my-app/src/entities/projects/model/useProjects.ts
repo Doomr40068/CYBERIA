@@ -29,9 +29,7 @@ export function useProjects() {
 
             setLastPage(pagination.last_page);
             setCurrentPage(page);
-        } catch (err) {
-            setError('Не удалось загрузить проекты');
-            console.error('Error fetching projects:', err);
+        } catch {
         } finally {
             setIsLoading(false);
             setIsInitialLoading(false);

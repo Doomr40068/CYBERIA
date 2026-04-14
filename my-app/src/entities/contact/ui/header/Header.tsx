@@ -3,13 +3,8 @@
 import { useState, useEffect } from 'react';
 import { StickyHeader } from '@/entities/contact/ui/header/StickyHeader';
 import { MainHeader } from '@/entities/contact/ui/header/MainHeader';
-import { Contacts } from '@/entities/contact/model/types';
 
-interface ElementsProps {
-    contacts: Contacts[];
-}
-
-export default function Header({ contacts }: ElementsProps) {
+export default function Header() {
     const [showSticky, setShowSticky] = useState(false);
     const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -30,8 +25,8 @@ export default function Header({ contacts }: ElementsProps) {
 
     return (
         <>
-            <MainHeader contacts={contacts} />
-            <StickyHeader show={showSticky} contacts={contacts} />
+            <MainHeader />
+            <StickyHeader show={showSticky} />
         </>
     );
 }

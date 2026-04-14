@@ -1,13 +1,7 @@
 'use client';
 
 import { Card, CardContent } from '@/shared/ui/card';
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from '@/shared/ui/carousel';
+import { Carousel, CarouselContent, CarouselItem } from '@/shared/ui/carousel';
 import Image from 'next/image';
 import { Review } from '@/entities/review/model/types';
 

@@ -1,28 +1,21 @@
+'use client';
+
 import { RiTelegramLine } from 'react-icons/ri';
 import { BiLogoVk } from 'react-icons/bi';
-import { Contacts } from '@/entities/contact/model/types';
 import { FaWhatsapp } from 'react-icons/fa6';
 import { Menu } from 'lucide-react';
-import {
-    Sheet,
-    SheetClose,
-    SheetContent,
-    SheetDescription,
-    SheetFooter,
-    SheetHeader,
-    SheetTitle,
-    SheetTrigger,
-} from '@/shared/ui/sheet';
+import { useContactsContext } from '@/entities/contact/model/ContactContext';
+import { Sheet, SheetContent, SheetTrigger } from '@/shared/ui/sheet';
 import Link from 'next/link';
 
 interface StickyHeaderProps {
     show: boolean;
-    contacts: Contacts[];
 }
 
-export function StickyHeader({ show, contacts }: StickyHeaderProps) {
-    const contactsMap = Object.fromEntries(contacts.map((item) => [item.kay, item.value]));
+export function StickyHeader({ show }: StickyHeaderProps) {
+    const contacts = useContactsContext();
 
+    const contactsMap = Object.fromEntries(contacts.map((item) => [item.key, item.value]));
     return (
         <div
             className={`
@@ -95,7 +88,11 @@ export function StickyHeader({ show, contacts }: StickyHeaderProps) {
                     <SheetTrigger asChild>
                         <button className="md:hidden p-2 -mr-2">
                             <div className="flex gap-1.5">
-                                <a href={contactsMap.telegram} target="_blank">
+                                <a
+                                    href={contactsMap.telegram}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
                                     <RiTelegramLine className="text-3xl" />
                                 </a>
                                 <Menu size={28} className="text-white" />
@@ -144,15 +141,27 @@ export function StickyHeader({ show, contacts }: StickyHeaderProps) {
                                     </h4>
                                 </div>
                                 <div className="flex gap-1 text-3xl pt-6">
-                                    <a href={contactsMap.telegram} target="_blank">
+                                    <Link
+                                        href={contactsMap.telegram}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
                                         <RiTelegramLine className="fill-white transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
-                                    </a>
-                                    <a href={contactsMap.whatsapp} target="_blank">
+                                    </Link>
+                                    <Link
+                                        href={contactsMap.whatsapp}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
                                         <FaWhatsapp className="fill-white transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
-                                    </a>
-                                    <a href={contactsMap.vk} target="_blank">
+                                    </Link>
+                                    <Link
+                                        href={contactsMap.vk}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
                                         <BiLogoVk className="fill-white transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                             <button className="bg-[#9E70FF] text-white text-2xl !mx-4 !px-14 !py-5 !mb-9 rounded-2xl">

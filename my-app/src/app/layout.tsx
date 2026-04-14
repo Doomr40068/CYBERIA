@@ -3,7 +3,8 @@ import { Unbounded } from 'next/font/google';
 import '@/app/globals.css';
 import Header from '@/entities/contact/ui/header/Index';
 import { contactAPI } from '@/entities/contact/api/ContactsApi';
-import Footers from '@/entities/contact/ui/footer/Footer';
+import Footer from '@/entities/contact/ui/footer/Footer';
+import { ContactProvider } from '@/entities/contact/model/ContactContext';
 
 const unboundedSemiBold = Unbounded({
     subsets: ['latin', 'cyrillic'],
@@ -24,9 +25,11 @@ export default async function RootLayout({
     return (
         <html lang="ru" className={unboundedSemiBold.className}>
             <body className="!p-5">
-                <Header contacts={contacts} />
-                {children}
-                <Footers contacts={contacts} />
+                <ContactProvider contacts={contacts}>
+                    <Header />
+                    {children}
+                    <Footer />
+                </ContactProvider>
             </body>
         </html>
     );

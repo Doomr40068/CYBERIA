@@ -29,4 +29,4 @@ class ApiClient {
     }
 }
 
-export const apiclient = new ApiClient();
+export const apiClient = new ApiClient();

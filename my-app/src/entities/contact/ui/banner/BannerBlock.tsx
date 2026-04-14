@@ -1,14 +1,13 @@
+'use client';
+
 import { RiTelegramLine } from 'react-icons/ri';
 import { BiLogoVk } from 'react-icons/bi';
 import { FaWhatsapp } from 'react-icons/fa6';
 import Image from 'next/image';
-import { Contacts } from '@/entities/contact/model/types';
+import { useContactsContext } from '@/entities/contact/model/ContactContext';
 
-interface ContactsProps {
-    contacts: Contacts[];
-}
-
-export function BannerBlock({ contacts }: ContactsProps) {
+export function BannerBlock() {
+    const contacts = useContactsContext();
     const contactsMap = Object.fromEntries(contacts.map((item) => [item.kay, item.value]));
 
     return (

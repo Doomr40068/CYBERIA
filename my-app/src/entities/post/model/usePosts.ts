@@ -4,23 +4,23 @@ import { Posts } from '@/entities/post/model/types';
 import { postsAPI } from '@/entities/post/api/PostApi';
 
 export function usePosts() {
-    const [projects, setProjects] = useState<Posts[]>([]);
+    const [posts, setPosts] = useState<Posts[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        const fetchProjects = async () => {
+        const fetchPosts = async () => {
             try {
                 setIsLoading(true);
                 const data = await postsAPI.getPosts();
-                setProjects(data);
-            } catch (err) {
+                setPosts(data);
+            } catch {
                 setError('Failed');
             } finally {
                 setIsLoading(false);
             }
         };
-        fetchProjects();
+        fetchPosts();
     }, []);
-    return { projects, isLoading, error };
+    return { posts, isLoading, error };
 }

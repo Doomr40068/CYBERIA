@@ -1,14 +1,14 @@
+'use client';
+
 import Image from 'next/image';
 import { RiTelegramLine } from 'react-icons/ri';
 import { BiLogoVk } from 'react-icons/bi';
-import { Contacts } from '@/entities/contact/model/types';
 import { FaWhatsapp } from 'react-icons/fa6';
+import { useContactsContext } from '@/entities/contact/model/ContactContext';
 
-interface ContactsProps {
-    contacts: Contacts[];
-}
+export function ContactsBanner() {
+    const contacts = useContactsContext();
 
-export function ContactsBanner({ contacts }: ContactsProps) {
     const contactsMap = Object.fromEntries(contacts.map((item) => [item.kay, item.value]));
     return (
         <div className="flex lg:flex-row flex-col-reverse justify-center rounded-4xl gap-5 !p-10 !my-24 !mx-5 bg-[#6ECCFF] bg-gradient-to-r from-[#70D0FF] to-[#2D41F9] ">

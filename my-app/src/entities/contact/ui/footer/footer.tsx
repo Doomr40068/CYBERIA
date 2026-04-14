@@ -1,7 +1,9 @@
+'use client';
+
 import { RiTelegramLine } from 'react-icons/ri';
 import { BiLogoVk } from 'react-icons/bi';
 import { FaWhatsapp } from 'react-icons/fa6';
-import { Contacts } from '@/entities/contact/model/types';
+import { useContactsContext } from '@/entities/contact/model/ContactContext';
 import Link from 'next/link';
 import { Wix_Madefor_Text } from 'next/font/google';
 
@@ -11,11 +13,9 @@ const wixMadefor = Wix_Madefor_Text({
     display: 'swap',
 });
 
-interface FooterProps {
-    contacts: Contacts[];
-}
+export default function Footer() {
+    const contacts = useContactsContext();
 
-export default function Footers({ contacts }: FooterProps) {
     const c = Object.fromEntries(contacts.map((item) => [item.kay, item.value]));
 
     return (

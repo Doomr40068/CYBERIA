@@ -16,7 +16,6 @@ const nextConfig: NextConfig = {
                 pathname: '/projects/**',
             },
         ],
-        dangerouslyAllowSVG: true,
         unoptimized: process.env.NODE_ENV === 'development',
     },
     async rewrites() {
