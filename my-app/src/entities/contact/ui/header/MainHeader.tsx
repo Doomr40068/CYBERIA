@@ -7,16 +7,18 @@ import { FaWhatsapp } from 'react-icons/fa6';
 import { Menu } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from '@/shared/ui/sheet';
 import Link from 'next/link';
+import { Button } from '@/shared/ui/button';
 
-export function MainHeader() {
+export default function MainHeader() {
     const contacts = useContactsContext();
+    if (!contacts) return null;
     const contactsMap = Object.fromEntries(contacts.map((item) => [item.kay, item.value]));
 
     return (
         <header className="flex items-center justify-between !px-5 !mb-5 font-semibold  ">
-            <h1 className="text-2xl font-bold">КИБЕРИЯ</h1>
+            <h2 className="text-2xl font-bold">КИБЕРИЯ</h2>
 
-            <nav className="hidden lg:text-[16px] md:text-[12px] md:flex gap-2.5">
+            <nav className="hidden lg:text-sm md:text-sm md:flex gap-2.5">
                 <Link
                     href="/projects"
                     className="hover:bg-gradient-to-r hover:from-[#2D41F9] hover:via-[#9E70FF] hover:to-[#36CFFF] hover:bg-clip-text hover:text-transparent cursor-pointer"
@@ -63,32 +65,32 @@ export function MainHeader() {
 
             <div className="flex gap-4 items-center">
                 <div className=" hidden md:flex items-center gap-2.5 text-2xl">
-                    <a href={contactsMap.telegram} target="_blank" aria-label="Telegram">
+                    <Link href={contactsMap.telegram} target="_blank" rel="noopener noreferrer">
                         <RiTelegramLine className="fill-black transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
-                    </a>
-                    <a href={contactsMap.whatsapp} target="_blank" aria-label="Whatsapp">
+                    </Link>
+                    <Link href={contactsMap.whatsapp} target="_blank" rel="noopener noreferrer">
                         <FaWhatsapp className="fill-black transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
-                    </a>
-                    <a href={contactsMap.vk} target="_blank" aria-label="VK">
+                    </Link>
+                    <Link href={contactsMap.vk} target="_blank" rel="noopener noreferrer">
                         <BiLogoVk className="fill-black transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
-                    </a>
+                    </Link>
                 </div>
             </div>
 
             <Sheet>
                 <SheetTrigger asChild>
-                    <button className="md:hidden p-2 -mr-2">
+                    <div className="md:hidden p-2 -mr-2">
                         <div className="flex gap-1.5">
-                            <a
+                            <Link
                                 href={contactsMap.telegram}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
                                 <RiTelegramLine className="text-3xl" />
-                            </a>
+                            </Link>
                             <Menu size={28} className="text-black" />
                         </div>
-                    </button>
+                    </div>
                 </SheetTrigger>
 
                 <SheetContent side="right" className="bg-[#2D41F9] !max-w-none text-white !w-full">
@@ -121,36 +123,36 @@ export function MainHeader() {
 
                         <div className="flex rounded-2xl !p-6 bg-black !mx-4 flex-col gap-3 mb-1.5 ">
                             <div>
-                                <h4 className="text-2xl text-white font-bold">
-                                    {contactsMap.phone}
-                                </h4>
-                                <h4 className="text-2xl text-white font-bold">
-                                    {contactsMap.email}
-                                </h4>
+                                <p className="text-2xl text-white font-bold">{contactsMap.phone}</p>
+                                <p className="text-2xl text-white font-bold">{contactsMap.email}</p>
                             </div>
                             <div className="flex gap-1 text-3xl pt-6">
-                                <a
+                                <Link
                                     href={contactsMap.telegram}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
                                     <RiTelegramLine className="fill-white transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
-                                </a>
-                                <a
+                                </Link>
+                                <Link
                                     href={contactsMap.whatsapp}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
                                     <FaWhatsapp className="fill-white transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
-                                </a>
-                                <a href={contactsMap.vk} target="_blank" rel="noopener noreferrer">
+                                </Link>
+                                <Link
+                                    href={contactsMap.vk}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
                                     <BiLogoVk className="fill-white transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
-                                </a>
+                                </Link>
                             </div>
                         </div>
-                        <button className="bg-[#9E70FF] text-white text-2xl !mx-4 !px-14 !py-5 !mb-9 rounded-2xl">
+                        <Button variant="burger" size="burger">
                             Обсудить проект
-                        </button>
+                        </Button>
                     </div>
                 </SheetContent>
             </Sheet>

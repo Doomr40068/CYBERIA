@@ -8,10 +8,19 @@ import { useProjects } from '@/entities/projects/model/useProjects';
 export function OurProject() {
     const { projects, loadMore, hasMore, isLoading, error } = useProjects();
 
+    if (isLoading) {
+        return (
+            <div className="flex flex-col items-center mb-30">
+                <h2 className="text-center text-4x1 font-bold !mb-12">Наши проекты</h2>
+                <div className="text-red-500 text-center p-8">Идёт загрузка</div>
+            </div>
+        );
+    }
+
     if (error) {
         return (
             <div className="flex flex-col items-center mb-30">
-                <h1 className="text-center text-[40px] font-bold !mb-12">Наши проекты</h1>
+                <h2 className="text-center text-4x1 font-bold !mb-12">Наши проекты</h2>
                 <div className="text-red-500 text-center p-8">Ошибка: {error}</div>
             </div>
         );
@@ -19,9 +28,9 @@ export function OurProject() {
 
     return (
         <div className="flex flex-col items-center mb-30">
-            <h1 className="text-center text-[40px] font-bold !mb-12"> Наши проекты </h1>
+            <h2 className="text-center text-4xl font-bold !mb-12"> Наши проекты </h2>
             <Tabs defaultValue="webservices" className="w-full">
-                <TabsList className="font-['Wix_Madefor_Text'] text-[15px] gap-3 bg-transparent flex flex-nowrap w-full overflow-x-auto">
+                <TabsList className="font-['Wix_Madefor_Text'] text-sm gap-3 bg-transparent flex flex-nowrap w-full overflow-x-auto">
                     <TabsTrigger
                         value="webservices"
                         className="
@@ -135,8 +144,8 @@ export function OurProject() {
                                     loading="lazy"
                                 />
                                 <div>
-                                    <h1 className="font-bold text-xl">{el.title}</h1>
-                                    <h3 className="text-gray-600">{el.description}</h3>
+                                    <h3 className="font-bold text-xl">{el.title}</h3>
+                                    <p className="text-gray-600">{el.description}</p>
                                 </div>
                             </div>
                         ))}

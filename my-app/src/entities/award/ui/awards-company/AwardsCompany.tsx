@@ -7,24 +7,24 @@ interface AwardsCompanyProps {
 
 export function AwardsCompany({ awards }: AwardsCompanyProps) {
     return (
-        <div>
-            <h1 className="text-center text-[40px] font-bold !mb-12 ">Награды студии</h1>
-            <div className="grid md:grid-cols-3 grid-cols-1 gap-10">
+        <div className="w-full">
+            <h2 className="text-center text-4xl font-bold !mb-12 ">Награды студии</h2>
+            <div className="grid lg:grid-cols-3 grid-cols-1 gap-5">
                 {awards &&
                     awards.map((el) => (
                         <div key={el?.id} className="flex mb-5 gap-5">
                             <Image
-                                className="w-[100] h-[100] rounded-full object-cover"
+                                className="w-24 h-24 rounded-full object-cover"
                                 src={el?.award_icon.original_url}
                                 alt="award"
-                                width={100}
-                                height={100}
+                                width={150}
+                                height={150}
                             />
                             <div>
-                                <h2 className="font-bold text-2xl ">{el?.title}</h2>
-                                <h3 className="font-['Wix_Madefor_Text'] text-[16] ">
+                                <h3 className="font-bold text-2xl ">{el?.title}</h3>
+                                <p className="font-['Wix_Madefor_Text'] text-sm ">
                                     {el?.description}
-                                </h3>
+                                </p>
                             </div>
                         </div>
                     ))}

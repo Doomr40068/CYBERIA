@@ -1,0 +1,1 @@
+export { AwardsCompany } from './AwardsCompany';

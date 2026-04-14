@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { StickyHeader } from '@/entities/contact/ui/header/StickyHeader';
-import { MainHeader } from '@/entities/contact/ui/header/MainHeader';
+import { default as StickyHeader } from '@/entities/contact/ui/header/StickyHeader';
+import { default as MainHeader } from '@/entities/contact/ui/header/MainHeader';
 
 export default function Header() {
     const [showSticky, setShowSticky] = useState(false);

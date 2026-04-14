@@ -5,9 +5,12 @@ import { BiLogoVk } from 'react-icons/bi';
 import { FaWhatsapp } from 'react-icons/fa6';
 import Image from 'next/image';
 import { useContactsContext } from '@/entities/contact/model/ContactContext';
+import Link from 'next/link';
+import { Button } from '@/shared/ui/button';
 
 export function BannerBlock() {
     const contacts = useContactsContext();
+    if (!contacts) return null;
     const contactsMap = Object.fromEntries(contacts.map((item) => [item.kay, item.value]));
 
     return (
@@ -26,30 +29,35 @@ export function BannerBlock() {
         >
             {/* ЛЕВАЯ ЧАСТЬ */}
             <div className="w-full lg:w-1/2">
-                <h1 className="text-2xl lg:text-4xl font-bold leading-tight">
+                <h2 className="text-2xl lg:text-4xl font-bold leading-tight">
                     Разрабатываем сложные IT продукты:
                     <br />
                     e-com, веб-сервисы, ИИ
-                </h1>
+                </h2>
                 <div className="flex flex-col-reverse gap-4 lg:gap-6">
-                    <div className="flex flex-col gap-3">
-                        <button
-                            type="button"
-                            className="bg-black rounded-4xl text-sm !py-2 !px-3.5 w-fit"
-                        >
+                    <div className="flex flex-col font-['Wix_Madefor_Text'] gap-3">
+                        <Button type="button" variant="default" size="default">
                             Обсудить проект
-                        </button>
+                        </Button>
 
                         <div className="flex items-center gap-2.5 text-4xl">
-                            <a href={contactsMap.telegram} target="_blank" aria-label="Telegram">
+                            <Link
+                                href={contactsMap.telegram}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 <RiTelegramLine className="fill-black transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
-                            </a>
-                            <a href={contactsMap.whatsapp} target="_blank" aria-label="Whatsapp">
+                            </Link>
+                            <Link
+                                href={contactsMap.whatsapp}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 <FaWhatsapp className="fill-black transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
-                            </a>
-                            <a href={contactsMap.vk} target="_blank" aria-label="VK">
+                            </Link>
+                            <Link href={contactsMap.vk} target="_blank" rel="noopener noreferrer">
                                 <BiLogoVk className="fill-black transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
-                            </a>
+                            </Link>
                         </div>
                     </div>
 
@@ -74,7 +82,7 @@ export function BannerBlock() {
                             <h3>место</h3>
                         </div>
 
-                        <h4 className="text-sm">Разработка решений на базе ИИ</h4>
+                        <p className="text-sm">Разработка решений на базе ИИ</p>
                     </div>
                 </div>
             </div>

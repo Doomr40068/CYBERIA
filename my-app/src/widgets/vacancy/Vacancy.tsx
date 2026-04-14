@@ -1,4 +1,7 @@
-export function Vacancy() {
+import { Button } from '@/shared/ui';
+import Link from 'next/link';
+
+export default function Vacancy() {
     return (
         <div className="!mt-5 !px-2">
             <div className="bg-gradient-to-br from-[#060B82] to-[#0B0D20] rounded-3xl overflow-hidden">
@@ -16,18 +19,15 @@ export function Vacancy() {
                             </p>
 
                             <div className="!mt-8 flex lg:flex-row flex-col font-['Wix_Madefor_Text'] items-center gap-4">
-                                <button
-                                    type="button"
-                                    className="bg-blue-600 hover:bg-blue-700 transition-colors text-white !px-4 !py-3.5  rounded-full text-sm "
-                                >
+                                <Button variant="vacancy" size="vacancy">
                                     Подробнее
-                                </button>
-                                <a
+                                </Button>
+                                <Link
                                     href="https://barnaul.hh.ru/"
                                     className="text-white/80 hover:text-white underline underline-offset-4 self-center text-sm"
                                 >
                                     Вакансии на hh.ru
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>

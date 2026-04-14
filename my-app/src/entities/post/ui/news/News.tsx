@@ -7,15 +7,15 @@ interface NewsProps {
 
 export function News({ news }: NewsProps) {
     return (
-        <div className="bg-[#EDEEFF] !p-[30px] rounded-4xl flex flex-col items-center">
-            <h1 className="text-center text-[40px] font-bold !mb-12 ">Новости</h1>
+        <div className="bg-[#EDEEFF] !p-8 rounded-4xl flex flex-col items-center">
+            <h2 className="text-center text-4xl font-bold !mb-12 ">Новости</h2>
             <div className="grid w-full gap-8 lg:grid-cols-3 grid-cols-1">
                 {news.map((item) => (
                     <div
                         key={item.id}
                         className="bg-white !p-5 rounded-4xl gap-5 flex flex-col justify-between"
                     >
-                        <div className="flex flex-col gap-[8px]">
+                        <div className="flex flex-col gap-2">
                             <div className="w-full h-72 overflow-hidden rounded-4xl">
                                 <Image
                                     src={item.image_preview}
@@ -25,23 +25,20 @@ export function News({ news }: NewsProps) {
                                     className="w-full h-full object-cover"
                                 />
                             </div>
-                            <h3 className="font-bold lg:text-3xl text-[22px]  ">{item.title}</h3>
-                            <h3 className="font-['Wix_Madefor_Text'] font-medium text-[18px]">
+                            <h3 className="font-bold lg:text-3xl text-2xl  ">{item.title}</h3>
+                            <p className="font-['Wix_Madefor_Text'] font-medium text-[18px]">
                                 {item.description}
-                            </h3>
+                            </p>
                         </div>
                         <div className="flex gap-4 items-center">
-                            <h3>📅</h3>
-                            <h3 className="text-[#6F7998] text-[14px] font-['Wix_Madefor_Text']">
+                            <p>📅</p>
+                            <p className="text-[#6F7998] text-[14px] font-['Wix_Madefor_Text']">
                                 {item.published_at}
-                            </h3>
+                            </p>
                         </div>
                     </div>
                 ))}
             </div>
-            <button className="!mt-[48px] text-[14px] rounded-[25px] font-['Wix_Madefor_Text'] !py-2 !px-4.5 text-white !bg-blue-700">
-                Загрузить ещё
-            </button>
         </div>
     );
 }

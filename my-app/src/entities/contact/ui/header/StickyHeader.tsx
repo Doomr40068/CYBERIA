@@ -7,15 +7,16 @@ import { Menu } from 'lucide-react';
 import { useContactsContext } from '@/entities/contact/model/ContactContext';
 import { Sheet, SheetContent, SheetTrigger } from '@/shared/ui/sheet';
 import Link from 'next/link';
+import { Button } from '@/shared/ui/button';
 
 interface StickyHeaderProps {
     show: boolean;
 }
 
-export function StickyHeader({ show }: StickyHeaderProps) {
+export default function StickyHeader({ show }: StickyHeaderProps) {
     const contacts = useContactsContext();
-
-    const contactsMap = Object.fromEntries(contacts.map((item) => [item.key, item.value]));
+    if (!contacts) return null;
+    const contactsMap = Object.fromEntries(contacts.map((item) => [item.kay, item.value]));
     return (
         <div
             className={`
@@ -25,7 +26,7 @@ export function StickyHeader({ show }: StickyHeaderProps) {
       `}
         >
             <header className="bg-[#0B0D20] rounded-b-[15px] text-white flex items-center justify-between !p-5">
-                <h1 className="text-xl font-bold">КИБЕРИЯ</h1>
+                <h2 className="text-xl font-bold">КИБЕРИЯ</h2>
 
                 <nav className="flex space-x-4 hidden md:flex text-sm gap-2.5 ">
                     <Link
@@ -73,31 +74,31 @@ export function StickyHeader({ show }: StickyHeaderProps) {
                 </nav>
 
                 <ul className="hidden md:flex items-center gap-2.5 text-2xl">
-                    <a href={contactsMap.telegram} target="_blank" aria-label="Telegram">
+                    <Link href={contactsMap.telegram} target="_blank" rel="noopener noreferrer">
                         <RiTelegramLine className="fill-white transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
-                    </a>
-                    <a href={contactsMap.whatsapp} target="_blank" aria-label="Whatsapp">
+                    </Link>
+                    <Link href={contactsMap.whatsapp} target="_blank" rel="noopener noreferrer">
                         <FaWhatsapp className="fill-white transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
-                    </a>
-                    <a href={contactsMap.vk} target="_blank" aria-label="VK">
+                    </Link>
+                    <Link href={contactsMap.vk} target="_blank" rel="noopener noreferrer">
                         <BiLogoVk className="fill-white transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
-                    </a>
+                    </Link>
                 </ul>
 
                 <Sheet>
                     <SheetTrigger asChild>
-                        <button className="md:hidden p-2 -mr-2">
+                        <div className="md:hidden p-2 -mr-2">
                             <div className="flex gap-1.5">
-                                <a
+                                <Link
                                     href={contactsMap.telegram}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
                                     <RiTelegramLine className="text-3xl" />
-                                </a>
+                                </Link>
                                 <Menu size={28} className="text-white" />
                             </div>
-                        </button>
+                        </div>
                     </SheetTrigger>
 
                     <SheetContent
@@ -133,12 +134,12 @@ export function StickyHeader({ show }: StickyHeaderProps) {
 
                             <div className="flex rounded-2xl !p-6 bg-black !mx-4 flex-col gap-3 mb-1.5 ">
                                 <div>
-                                    <h4 className="text-2xl text-white font-bold">
+                                    <p className="text-2xl text-white font-bold">
                                         {contactsMap.phone}
-                                    </h4>
-                                    <h4 className="text-2xl text-white font-bold">
+                                    </p>
+                                    <p className="text-2xl text-white font-bold">
                                         {contactsMap.email}
-                                    </h4>
+                                    </p>
                                 </div>
                                 <div className="flex gap-1 text-3xl pt-6">
                                     <Link
@@ -164,9 +165,9 @@ export function StickyHeader({ show }: StickyHeaderProps) {
                                     </Link>
                                 </div>
                             </div>
-                            <button className="bg-[#9E70FF] text-white text-2xl !mx-4 !px-14 !py-5 !mb-9 rounded-2xl">
+                            <Button variant="burger" size="burger">
                                 Обсудить проект
-                            </button>
+                            </Button>
                         </div>
                     </SheetContent>
                 </Sheet>
