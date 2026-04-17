@@ -1,15 +1,25 @@
 'use client';
 import { useState, useEffect, useCallback } from 'react';
-import { Project } from '@/entities/projects/model/types';
+import { Project, ProjectCategory } from '@/entities/projects/model/types';
 import { projectAPI } from '@/entities/projects/api/ProjectsApi';
 
 export function useProjects() {
     const [projects, setProjects] = useState<Project[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [lastPage, setLastPage] = useState(1);
+    const [categories, setCategories] = useState<ProjectCategory[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isInitialLoading, setIsInitialLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+
+    const loadCategories = async () => {
+        try {
+            const data = await projectAPI.getCategories();
+            setCategories(data);
+        } catch (e) {
+            console.error(e);
+        }
+    };
 
     const fetchProjects = useCallback(async (page: number, shouldConcat: boolean = false) => {
         try {
@@ -40,6 +50,10 @@ export function useProjects() {
         fetchProjects(1, false);
     }, [fetchProjects]);
 
+    useEffect(() => {
+        loadCategories();
+    }, []);
+
     const loadMore = useCallback(() => {
         if (!isLoading && currentPage < lastPage) {
             const nextPage = currentPage + 1;
@@ -49,6 +63,7 @@ export function useProjects() {
 
     return {
         projects,
+        categories,
         loadMore,
         hasMore: currentPage < lastPage,
         isLoading: isLoading || isInitialLoading,

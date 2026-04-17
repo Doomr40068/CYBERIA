@@ -27,9 +27,7 @@ export interface ProjectCategory {
 
 export interface ProjectCategoryResponse {
     message: string;
-    data: {
-        tags: ProjectCategory[];
-    };
+    data: ProjectCategory[];
 }
 
 export interface ProjectResponse {

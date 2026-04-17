@@ -1,9 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import { RiTelegramLine } from 'react-icons/ri';
+import { RiTelegram2Fill } from 'react-icons/ri';
 import { BiLogoVk } from 'react-icons/bi';
-import { FaWhatsapp } from 'react-icons/fa6';
+import { IoLogoWhatsapp } from 'react-icons/io';
 import { useContactsContext } from '@/entities/contact/model/ContactContext';
 import Link from 'next/link';
 
@@ -33,13 +33,13 @@ export function ContactsBanner() {
                     <p className="!mr-2 font-['Wix_Madefor_Text'] text-2xl ">Обсудить проект</p>
                     <div className="flex items-center gap-2.5 text-3xl">
                         <Link href={contactsMap.telegram} target="_blank" rel="noopener noreferrer">
-                            <RiTelegramLine className="fill-white transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
+                            <RiTelegram2Fill className="fill-white border-1 !p-1.5 hover:fill-white hover:border-transparent border-white rounded-3xl transition-all duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110" />
                         </Link>
                         <Link href={contactsMap.whatsapp} target="_blank" rel="noopener noreferrer">
-                            <FaWhatsapp className="fill-white transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
+                            <IoLogoWhatsapp className="fill-white border-1 !p-1.5 hover:fill-white hover:border-transparent border-white rounded-3xl transition-all duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110" />
                         </Link>
                         <Link href={contactsMap.vk} target="_blank" rel="noopener noreferrer">
-                            <BiLogoVk className="fill-white transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
+                            <BiLogoVk className="fill-white border-1 !p-1.5 hover:fill-white hover:border-transparent border-white rounded-3xl transition-all duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110" />
                         </Link>
                     </div>
                 </div>

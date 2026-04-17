@@ -1,4 +1,5 @@
 'use client';
+import { Button } from '@/shared/ui';
 
 interface ButtonMoreProps {
     onClick: () => void;
@@ -7,11 +8,21 @@ interface ButtonMoreProps {
 }
 
 export function ButtonMore({ onClick, isLoading, hasMore }: ButtonMoreProps) {
-    if (!hasMore) return null;
+    if (!hasMore) {
+        return (
+            <Button
+                variant="default"
+                size="default"
+                className=' text-2xl !px-10 !py-6 !mt-7 font-["Wix_Madefor_Text"]'
+            >
+                Элементов больше нет
+            </Button>
+        );
+    }
 
     return (
         <div className="flex justify-center mt-8">
-            <button
+            <Button
                 type="button"
                 onClick={onClick}
                 disabled={isLoading}
@@ -21,18 +32,20 @@ export function ButtonMore({ onClick, isLoading, hasMore }: ButtonMoreProps) {
                     via-[#9E70FF] 
                     to-[#36CFFF]
                     hover:text-white
-                    !m-5
-                    !px-8 
-                    !py-3
+                    !m-7
+                    !px-10 
+                    text-2xl
+                    !py-6
                     rounded-full
                     bg-[#EDEEFF]
                     text-black
                     transition-all 
                     duration-500
+                    font-['Wix_Madefor_Text']
                 "
             >
                 {isLoading ? 'Загрузка...' : 'Загрузить ещё'}
-            </button>
+            </Button>
         </div>
     );
 }

@@ -1,16 +1,34 @@
-import { Posts } from '@/entities/post/model/types';
+'use client';
+
 import Image from 'next/image';
+import { ButtonMore } from '@/features/load-more-projects/ui/ButtonMore';
+import { usePosts } from '@/entities/post/model/usePosts';
 
-interface NewsProps {
-    news: Posts[];
-}
+export function News() {
+    const { posts, loadMore, isLoading, hasMore, error } = usePosts();
 
-export function News({ news }: NewsProps) {
+    if (isLoading) {
+        return (
+            <div>
+                <h2 className="text-center items-center !mb-30">Новости</h2>
+                <div className="text-4xl text-center !p-8"> Загрузка </div>
+            </div>
+        );
+    }
+    if (error) {
+        return (
+            <div>
+                <h2 className="text-center items-center !mb-30">Новости</h2>
+                <div className="text-red-500 text-4xl text-center !p-8"> Ошибка {error} </div>
+            </div>
+        );
+    }
+
     return (
         <div className="bg-[#EDEEFF] !p-8 rounded-4xl flex flex-col items-center">
             <h2 className="text-center text-4xl font-bold !mb-12 ">Новости</h2>
             <div className="grid w-full gap-8 lg:grid-cols-3 grid-cols-1">
-                {news.map((item) => (
+                {posts.map((item) => (
                     <div
                         key={item.id}
                         className="bg-white !p-5 rounded-4xl gap-5 flex flex-col justify-between"
@@ -39,6 +57,7 @@ export function News({ news }: NewsProps) {
                     </div>
                 ))}
             </div>
+            <ButtonMore onClick={loadMore} isLoading={isLoading} hasMore={hasMore} />
         </div>
     );
 }

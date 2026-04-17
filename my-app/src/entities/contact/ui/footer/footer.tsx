@@ -1,8 +1,8 @@
 'use client';
 
-import { RiTelegramLine } from 'react-icons/ri';
+import { RiTelegram2Fill } from 'react-icons/ri';
 import { BiLogoVk } from 'react-icons/bi';
-import { FaWhatsapp } from 'react-icons/fa6';
+import { IoLogoWhatsapp } from 'react-icons/io';
 import { useContactsContext } from '@/entities/contact/model/ContactContext';
 import Link from 'next/link';
 import { Wix_Madefor_Text } from 'next/font/google';
@@ -67,29 +67,14 @@ export default function Footer() {
                         </div>
 
                         <div className="flex gap-2 text-3xl !mb-2 ">
-                            <Link
-                                href={c.telegram}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-gray-700 hover:text-blue-600 transition-colors"
-                            >
-                                <RiTelegramLine />
+                            <Link href={c.telegram} target="_blank" rel="noopener noreferrer">
+                                <RiTelegram2Fill className="fill-black border-1 !p-1.5 border-black hover:bg-transparent hover:fill-white rounded-3xl transition-all duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110" />
                             </Link>
-                            <Link
-                                href={c.whatsapp}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-gray-700 hover:text-[#25D366] transition-colors"
-                            >
-                                <FaWhatsapp />
+                            <Link href={c.whatsapp} target="_blank" rel="noopener noreferrer">
+                                <IoLogoWhatsapp className="fill-black border-1 !p-1.5 border-black hover:bg-transparent hover:fill-white rounded-3xl transition-all duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110" />
                             </Link>
-                            <Link
-                                href={c.vk}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-gray-700 hover:text-[#0077FF] transition-colors"
-                            >
-                                <BiLogoVk />
+                            <Link href={c.vk} target="_blank" rel="noopener noreferrer">
+                                <BiLogoVk className="fill-black border-1 !p-1.5 hover:fill-white hover:bg-transparent border-black rounded-3xl transition-all duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110" />
                             </Link>
                         </div>
                     </div>

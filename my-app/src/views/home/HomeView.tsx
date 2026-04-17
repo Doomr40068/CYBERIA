@@ -4,17 +4,15 @@ import { ReviewCarousel } from '@/entities/review/ui';
 import { News } from '@/entities/post/ui/news/News';
 import { AwardsCompany } from '@/entities/award/ui/awards-company';
 import { Review } from '@/entities/review/model/types';
-import { Posts } from '@/entities/post/model/types';
 import { OurCommand, Vacancy } from '@/widgets';
 import { BannerBlock, ContactsBanner } from '@/entities/contact';
 
 interface HomeClientProps {
     awards: Award[];
     review: Review[];
-    news: Posts[];
 }
 
-export function HomeView({ awards, review, news }: HomeClientProps) {
+export function HomeView({ awards, review }: HomeClientProps) {
     return (
         <main>
             <BannerBlock />
@@ -26,7 +24,7 @@ export function HomeView({ awards, review, news }: HomeClientProps) {
                 <ReviewCarousel review={review} />
             </div>
             <ContactsBanner />
-            <News news={news} />
+            <News />
             <Vacancy />
         </main>
     );

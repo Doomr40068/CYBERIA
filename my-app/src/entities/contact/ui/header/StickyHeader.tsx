@@ -1,14 +1,14 @@
 'use client';
 
-import { RiTelegramLine } from 'react-icons/ri';
+import { RiTelegram2Fill } from 'react-icons/ri';
 import { BiLogoVk } from 'react-icons/bi';
-import { FaWhatsapp } from 'react-icons/fa6';
+import { IoLogoWhatsapp } from 'react-icons/io';
 import { Menu } from 'lucide-react';
 import { useContactsContext } from '@/entities/contact/model/ContactContext';
 import { Sheet, SheetContent, SheetTrigger } from '@/shared/ui/sheet';
 import Link from 'next/link';
 import { Button } from '@/shared/ui/button';
-
+import { FromDialog } from '@/features/open-forms/FormDialog';
 interface StickyHeaderProps {
     show: boolean;
 }
@@ -73,30 +73,30 @@ export default function StickyHeader({ show }: StickyHeaderProps) {
                     </Link>
                 </nav>
 
-                <ul className="hidden md:flex items-center gap-2.5 text-2xl">
+                <ul className="hidden md:flex items-center gap-2.5 text-4xl">
                     <Link href={contactsMap.telegram} target="_blank" rel="noopener noreferrer">
-                        <RiTelegramLine className="fill-white transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
+                        <RiTelegram2Fill className="fill-white transition-all border-1 !p-1.5 border-white rounded-3xl  duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110" />
                     </Link>
                     <Link href={contactsMap.whatsapp} target="_blank" rel="noopener noreferrer">
-                        <FaWhatsapp className="fill-white transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
+                        <IoLogoWhatsapp className="fill-white transition-all border-1 !p-1.5 border-white rounded-3xl  duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110" />
                     </Link>
                     <Link href={contactsMap.vk} target="_blank" rel="noopener noreferrer">
-                        <BiLogoVk className="fill-white transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
+                        <BiLogoVk className="fill-white transition-all border-1 !p-1.5 border-white rounded-3xl  duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110" />
                     </Link>
                 </ul>
 
                 <Sheet>
                     <SheetTrigger asChild>
                         <div className="md:hidden p-2 -mr-2">
-                            <div className="flex gap-1.5">
+                            <div className="flex text-4xl шеу gap-1.5">
                                 <Link
                                     href={contactsMap.telegram}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <RiTelegramLine className="text-3xl" />
+                                    <RiTelegram2Fill className="fill-white  border-1 !p-1.5 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] duration-1000 hover:scale-110 border-white rounded-3xl  " />
                                 </Link>
-                                <Menu size={28} className="text-white" />
+                                <Menu size={28} className="text-white text-4xl" />
                             </div>
                         </div>
                     </SheetTrigger>
@@ -141,33 +141,35 @@ export default function StickyHeader({ show }: StickyHeaderProps) {
                                         {contactsMap.email}
                                     </p>
                                 </div>
-                                <div className="flex gap-1 text-3xl pt-6">
+                                <div className="flex gap-1 text-4xl pt-6">
                                     <Link
                                         href={contactsMap.telegram}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <RiTelegramLine className="fill-white transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
+                                        <RiTelegram2Fill className="fill-white border-1 !p-1.5 border-white rounded-3xl  transition-all duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110" />
                                     </Link>
                                     <Link
                                         href={contactsMap.whatsapp}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <FaWhatsapp className="fill-white transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
+                                        <IoLogoWhatsapp className="fill-white border-1 !p-1.5 border-white rounded-3xl  transition-all duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110" />
                                     </Link>
                                     <Link
                                         href={contactsMap.vk}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <BiLogoVk className="fill-white transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
+                                        <BiLogoVk className="fill-white border-1 !p-1.5 border-white rounded-3xl  transition-all duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110" />
                                     </Link>
                                 </div>
                             </div>
-                            <Button variant="burger" size="burger">
-                                Обсудить проект
-                            </Button>
+                            <FromDialog>
+                                <Button variant="burger" size="burger">
+                                    Обсудить проект
+                                </Button>
+                            </FromDialog>
                         </div>
                     </SheetContent>
                 </Sheet>

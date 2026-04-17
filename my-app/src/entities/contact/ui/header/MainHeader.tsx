@@ -1,13 +1,14 @@
 'use client';
 
-import { RiTelegramLine } from 'react-icons/ri';
+import { RiTelegram2Fill } from 'react-icons/ri';
 import { BiLogoVk } from 'react-icons/bi';
 import { useContactsContext } from '@/entities/contact/model/ContactContext';
-import { FaWhatsapp } from 'react-icons/fa6';
+import { IoLogoWhatsapp } from 'react-icons/io';
 import { Menu } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from '@/shared/ui/sheet';
 import Link from 'next/link';
 import { Button } from '@/shared/ui/button';
+import { FromDialog } from '@/features/open-forms/FormDialog';
 
 export default function MainHeader() {
     const contacts = useContactsContext();
@@ -64,15 +65,15 @@ export default function MainHeader() {
             </nav>
 
             <div className="flex gap-4 items-center">
-                <div className=" hidden md:flex items-center gap-2.5 text-2xl">
+                <div className=" hidden md:flex items-center gap-2.5 text-4xl">
                     <Link href={contactsMap.telegram} target="_blank" rel="noopener noreferrer">
-                        <RiTelegramLine className="fill-black transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
+                        <RiTelegram2Fill className="fill-black border-1 !p-1.5 hover:fill-white hover:border-transparent border-black rounded-3xl transition-all duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110" />
                     </Link>
                     <Link href={contactsMap.whatsapp} target="_blank" rel="noopener noreferrer">
-                        <FaWhatsapp className="fill-black transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
+                        <IoLogoWhatsapp className="fill-black border-1 !p-1.5 hover:fill-white hover:border-transparent border-black rounded-3xl transition-all duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110" />
                     </Link>
                     <Link href={contactsMap.vk} target="_blank" rel="noopener noreferrer">
-                        <BiLogoVk className="fill-black transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
+                        <BiLogoVk className="fill-black border-1 !p-1.5 hover:fill-white hover:border-transparent border-black rounded-3xl transition-all duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110" />
                     </Link>
                 </div>
             </div>
@@ -86,7 +87,7 @@ export default function MainHeader() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <RiTelegramLine className="text-3xl" />
+                                <RiTelegram2Fill className="text-4xl border-1 !p-1.5 border-black rounded-3xl transition-all hover:fill-white duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110  " />
                             </Link>
                             <Menu size={28} className="text-black" />
                         </div>
@@ -95,7 +96,7 @@ export default function MainHeader() {
 
                 <SheetContent side="right" className="bg-[#2D41F9] !max-w-none text-white !w-full">
                     <div className="flex flex-col gap-8 mt-10">
-                        <div className="bg-white rounded-2xl text-black mb-1.5 !mt-9 !mx-4 !p-5 ">
+                        <div className="bg-white rounded-2xl text-black !mb-1.5 !mt-9 !mx-4 !p-5 ">
                             <nav className="flex flex-col gap-6 text-lg font-medium">
                                 <Link href="/projects" className="hover:text-blue-600">
                                     Проекты
@@ -121,38 +122,40 @@ export default function MainHeader() {
                             </nav>
                         </div>
 
-                        <div className="flex rounded-2xl !p-6 bg-black !mx-4 flex-col gap-3 mb-1.5 ">
+                        <div className="flex rounded-2xl !p-6 bg-black !mx-4 flex-col gap-3 !mb-1.5 ">
                             <div>
                                 <p className="text-2xl text-white font-bold">{contactsMap.phone}</p>
                                 <p className="text-2xl text-white font-bold">{contactsMap.email}</p>
                             </div>
-                            <div className="flex gap-1 text-3xl pt-6">
+                            <div className="flex gap-1 text-4xl pt-6">
                                 <Link
                                     href={contactsMap.telegram}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <RiTelegramLine className="fill-white transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
+                                    <RiTelegram2Fill className="fill-white transition-all border-1 !p-1.5 border-black rounded-3xl duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110" />
                                 </Link>
                                 <Link
                                     href={contactsMap.whatsapp}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <FaWhatsapp className="fill-white transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
+                                    <IoLogoWhatsapp className="fill-white transition-all border-1 !p-1.5 border-black rounded-3xl duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110" />
                                 </Link>
                                 <Link
                                     href={contactsMap.vk}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <BiLogoVk className="fill-white transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
+                                    <BiLogoVk className="fill-white transition-all border-1 !p-1.5 border-black rounded-3xl duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110" />
                                 </Link>
                             </div>
                         </div>
-                        <Button variant="burger" size="burger">
-                            Обсудить проект
-                        </Button>
+                        <FromDialog>
+                            <Button variant="burger" size="burger">
+                                Обсудить проект
+                            </Button>
+                        </FromDialog>
                     </div>
                 </SheetContent>
             </Sheet>

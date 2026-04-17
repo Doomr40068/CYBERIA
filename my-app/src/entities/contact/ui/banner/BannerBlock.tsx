@@ -1,12 +1,13 @@
 'use client';
 
-import { RiTelegramLine } from 'react-icons/ri';
+import { RiTelegram2Fill } from 'react-icons/ri';
 import { BiLogoVk } from 'react-icons/bi';
-import { FaWhatsapp } from 'react-icons/fa6';
+import { IoLogoWhatsapp } from 'react-icons/io';
 import Image from 'next/image';
 import { useContactsContext } from '@/entities/contact/model/ContactContext';
 import Link from 'next/link';
 import { Button } from '@/shared/ui/button';
+import { FromDialog } from '@/features/open-forms/FormDialog';
 
 export function BannerBlock() {
     const contacts = useContactsContext();
@@ -27,7 +28,6 @@ export function BannerBlock() {
             justify-between
         "
         >
-            {/* ЛЕВАЯ ЧАСТЬ */}
             <div className="w-full lg:w-1/2">
                 <h2 className="text-2xl lg:text-4xl font-bold leading-tight">
                     Разрабатываем сложные IT продукты:
@@ -36,27 +36,34 @@ export function BannerBlock() {
                 </h2>
                 <div className="flex flex-col-reverse gap-4 lg:gap-6">
                     <div className="flex flex-col font-['Wix_Madefor_Text'] gap-3">
-                        <Button type="button" variant="default" size="default">
-                            Обсудить проект
-                        </Button>
+                        <FromDialog>
+                            <Button
+                                type="button"
+                                variant="default"
+                                className="lg:text-[18px] lg:!px-6 lg:!py-5.5 font-medium "
+                                size="default"
+                            >
+                                Обсудить проект
+                            </Button>
+                        </FromDialog>
 
-                        <div className="flex items-center gap-2.5 text-4xl">
+                        <div className="flex items-center gap-2.5 text-3xl">
                             <Link
                                 href={contactsMap.telegram}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <RiTelegramLine className="fill-black transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
+                                <RiTelegram2Fill className="fill-white bg-black !p-1.5 rounded-3xl transition-all duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110" />
                             </Link>
                             <Link
                                 href={contactsMap.whatsapp}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <FaWhatsapp className="fill-black transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
+                                <IoLogoWhatsapp className="fill-white bg-black !p-1.5 rounded-3xl transition-all duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110" />
                             </Link>
                             <Link href={contactsMap.vk} target="_blank" rel="noopener noreferrer">
-                                <BiLogoVk className="fill-black transition-all duration-1000 hover:fill-[url(#telegram-gradient)] hover:scale-110" />
+                                <BiLogoVk className="fill-white bg-black !p-1.5 rounded-3xl transition-all duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110" />
                             </Link>
                         </div>
                     </div>
@@ -87,12 +94,11 @@ export function BannerBlock() {
                 </div>
             </div>
 
-            {/* ПРАВАЯ ЧАСТЬ */}
             <div className="w-full lg:w-1/2 max-h-96 flex justify-center">
                 <Image
                     className="
-                        w-[220px]
-                        sm:w-[260px]
+                        w-56
+                        sm:w-64
                         lg:w-full
                         h-auto
                         object-contain

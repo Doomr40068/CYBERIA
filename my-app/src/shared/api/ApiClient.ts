@@ -27,6 +27,15 @@ class ApiClient {
             method: 'GET',
         });
     }
+    post<T>(endpoint: string, body: unknown): Promise<T> {
+        return this.request<T>(endpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body),
+        });
+    }
 }
 
 export const apiClient = new ApiClient();
