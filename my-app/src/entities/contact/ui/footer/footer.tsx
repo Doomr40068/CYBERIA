@@ -2,7 +2,7 @@
 
 import { SocialMedia } from '@/entities/contact/ui/social-media';
 import { useContactsContext } from '@/entities/contact/model/ContactContext';
-import Link from 'next/link';
+import { NavigationBlock } from '@/widgets/navigation';
 import { Wix_Madefor_Text } from 'next/font/google';
 
 const wixMadefor = Wix_Madefor_Text({
@@ -26,35 +26,7 @@ export default function Footer() {
                     </div>
 
                     <div className="lg:col-span-5 flex flex-col order-3 !mb-5 lg:order-2 lg:items-center">
-                        <nav className="space-y-5 text-sm flex flex-col text-gray-600 text-center ">
-                            <Link href="/projects" className="hover:text-black transition-colors">
-                                Проекты
-                            </Link>
-
-                            <Link href="/services" className="hover:text-black transition-colors">
-                                Услуги
-                            </Link>
-
-                            <Link href="/about" className="hover:text-black transition-colors">
-                                О компании
-                            </Link>
-
-                            <Link href="/career" className="hover:text-black transition-colors">
-                                Карьера
-                            </Link>
-
-                            <Link href="/blog" className="hover:text-black transition-colors">
-                                Блог
-                            </Link>
-
-                            <Link href="/news" className="hover:text-black transition-colors">
-                                Новости
-                            </Link>
-
-                            <Link href="/contacts" className="hover:text-black transition-colors">
-                                Контакты
-                            </Link>
-                        </nav>
+                        <NavigationBlock className="flex-col text-center" />
                     </div>
 
                     <div className="lg:col-span-3 flex flex-col gap-2 items-center lg:order-3 order-2 lg:items-end">

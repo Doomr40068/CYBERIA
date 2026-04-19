@@ -18,6 +18,7 @@ export function useProjects() {
             setCategories(data);
         } catch (error) {
             console.error(error);
+            setError('Ошибка загрузки проектов');
         }
     };
 
@@ -39,8 +40,9 @@ export function useProjects() {
 
             setLastPage(pagination.last_page);
             setCurrentPage(page);
-        } catch (e) {
-            console.error(e);
+        } catch (error) {
+            console.error(error);
+            setError('Ошибка загрузки проектов');
         } finally {
             setIsLoading(false);
             setIsInitialLoading(false);

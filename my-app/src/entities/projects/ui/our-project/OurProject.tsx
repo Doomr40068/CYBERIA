@@ -4,9 +4,17 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/ui/tabs';
 import Image from 'next/image';
 import { ButtonMore } from '@/features/load-more-projects/ui/ButtonMore';
 import { useProjects } from '@/entities/projects/model/useProjects';
+import { useState, useEffect } from 'react';
 
 export function OurProject() {
     const { projects, categories, loadMore, hasMore, isLoading, error } = useProjects();
+    const [activeTab, setActiveTab] = useState<string>();
+
+    useEffect(() => {
+        if (categories.length > 0) {
+            setActiveTab(String(categories[0].id));
+        }
+    }, [categories]);
 
     if (error) {
         return (
@@ -24,7 +32,7 @@ export function OurProject() {
             <h2 id="projects" className="text-center text-4xl font-bold !mb-12">
                 Наши проекты
             </h2>
-            <Tabs defaultValue={categories[0]?.id?.toString()} className="w-full">
+            <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
                 <TabsList
                     onWheel={(e) => {
                         e.preventDefault();
