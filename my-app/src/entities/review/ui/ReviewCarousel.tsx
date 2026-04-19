@@ -10,7 +10,7 @@ interface ReviewCarouselProps {
     review: Review[];
 }
 
-export default function ReviewCarousel({ review = [] }: ReviewCarouselProps) {
+export function ReviewCarousel({ review = [] }: ReviewCarouselProps) {
     if (!review.length) {
         return <div className="text-center !py-10">Нет элементов</div>;
     }

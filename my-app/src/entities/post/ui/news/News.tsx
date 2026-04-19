@@ -10,7 +10,9 @@ export function News() {
     if (isLoading) {
         return (
             <div>
-                <h2 className="text-center items-center !mb-30">Новости</h2>
+                <h2 id="news" className="text-center items-center !mb-30">
+                    Новости
+                </h2>
                 <div className="text-4xl text-center !p-8"> Загрузка </div>
             </div>
         );
@@ -18,7 +20,9 @@ export function News() {
     if (error) {
         return (
             <div>
-                <h2 className="text-center items-center !mb-30">Новости</h2>
+                <h2 id="news" className="text-center items-center !mb-30">
+                    Новости
+                </h2>
                 <div className="text-red-500 text-4xl text-center !p-8"> Ошибка {error} </div>
             </div>
         );
@@ -26,7 +30,9 @@ export function News() {
 
     return (
         <div className="bg-[#EDEEFF] !p-8 rounded-4xl flex flex-col items-center">
-            <h2 className="text-center text-4xl font-bold !mb-12 ">Новости</h2>
+            <h2 id="news" className="text-center text-4xl font-bold !mb-12 ">
+                Новости
+            </h2>
             <div className="grid w-full gap-8 lg:grid-cols-3 grid-cols-1">
                 {posts.map((item) => (
                     <div

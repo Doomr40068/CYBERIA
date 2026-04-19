@@ -7,7 +7,7 @@ interface AwardsCompanyProps {
 
 export function AwardsCompany({ awards }: AwardsCompanyProps) {
     return (
-        <div className="w-full">
+        <div id="career" className="w-full">
             <h2 className="text-center text-4xl font-bold !mb-12 ">Награды студии</h2>
             <div className="grid lg:grid-cols-3 grid-cols-1 gap-5">
                 {awards &&

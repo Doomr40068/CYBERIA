@@ -3,7 +3,7 @@ import { apiClient } from '@/shared/api/ApiClient';
 type FeedbackRequest = {
     name: string;
     phone: string;
-    comment: string;
+    comment?: string;
 };
 
 type FeedbackResponse = {
@@ -12,7 +12,7 @@ type FeedbackResponse = {
         id: number;
         name: string;
         phone: string;
-        comment: string;
+        comment?: string;
     };
 };
 

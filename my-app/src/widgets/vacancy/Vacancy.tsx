@@ -1,7 +1,7 @@
 import { Button } from '@/shared/ui';
 import Link from 'next/link';
 
-export default function Vacancy() {
+export function Vacancy() {
     return (
         <div className="!mt-5 !px-2">
             <div className="bg-gradient-to-br from-[#060B82] to-[#0B0D20] rounded-3xl overflow-hidden">

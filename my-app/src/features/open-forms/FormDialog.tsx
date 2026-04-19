@@ -1,11 +1,11 @@
 import { Dialog, DialogContent, DialogTrigger } from '@/shared/ui/dialog';
-import Form from '@/entities/contact/ui/form/Form';
+import { Form } from '@/entities/contact/ui/form/Form';
 
 type Props = {
     children: React.ReactNode;
 };
 
-export function FromDialog({ children }: Props) {
+export function FormDialog({ children }: Props) {
     return (
         <Dialog>
             <DialogTrigger asChild>{children}</DialogTrigger>

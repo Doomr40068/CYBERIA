@@ -1,5 +1,5 @@
 class ApiClient {
-    private baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+    private baseUrl = typeof window === 'undefined' ? process.env.NEXT_PUBLIC_API_URL : '';
 
     private async request<T>(url: string, options?: RequestInit): Promise<T> {
         const fullUrl = `${this.baseUrl}${url}`;

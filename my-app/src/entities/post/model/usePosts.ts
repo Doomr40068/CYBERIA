@@ -28,7 +28,8 @@ export function usePosts() {
 
             setLastPage(pagination.last_page);
             setCurrentPage(page);
-        } catch {
+        } catch (error) {
+            console.error(error);
         } finally {
             setIsLoading(false);
             setIsInitialLoading(false);

@@ -1,1 +1,1 @@
-export { default as OurCommand } from './OurCommand';
+export { OurCommand } from './OurCommand';

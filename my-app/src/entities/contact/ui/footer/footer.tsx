@@ -1,8 +1,6 @@
 'use client';
 
-import { RiTelegram2Fill } from 'react-icons/ri';
-import { BiLogoVk } from 'react-icons/bi';
-import { IoLogoWhatsapp } from 'react-icons/io';
+import { SocialMedia } from '@/entities/contact/ui/social-media';
 import { useContactsContext } from '@/entities/contact/model/ContactContext';
 import Link from 'next/link';
 import { Wix_Madefor_Text } from 'next/font/google';
@@ -16,7 +14,7 @@ const wixMadefor = Wix_Madefor_Text({
 export default function Footer() {
     const contacts = useContactsContext();
     if (!contacts) return null;
-    const c = Object.fromEntries(contacts.map((item) => [item.kay, item.value]));
+    const c = Object.fromEntries(contacts.map((item) => [item.key, item.value]));
 
     return (
         <footer className={`bg-white w-full !pt-16 pb-10 ${wixMadefor.className}`}>
@@ -66,17 +64,7 @@ export default function Footer() {
                             <p className="text-sm text-gray-600">{c.address}</p>
                         </div>
 
-                        <div className="flex gap-2 text-3xl !mb-2 ">
-                            <Link href={c.telegram} target="_blank" rel="noopener noreferrer">
-                                <RiTelegram2Fill className="fill-black border-1 !p-1.5 border-black hover:bg-transparent hover:fill-white rounded-3xl transition-all duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110" />
-                            </Link>
-                            <Link href={c.whatsapp} target="_blank" rel="noopener noreferrer">
-                                <IoLogoWhatsapp className="fill-black border-1 !p-1.5 border-black hover:bg-transparent hover:fill-white rounded-3xl transition-all duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110" />
-                            </Link>
-                            <Link href={c.vk} target="_blank" rel="noopener noreferrer">
-                                <BiLogoVk className="fill-black border-1 !p-1.5 hover:fill-white hover:bg-transparent border-black rounded-3xl transition-all duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110" />
-                            </Link>
-                        </div>
+                        <SocialMedia />
                     </div>
                 </div>
 

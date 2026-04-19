@@ -16,8 +16,8 @@ export function useProjects() {
         try {
             const data = await projectAPI.getCategories();
             setCategories(data);
-        } catch (e) {
-            console.error(e);
+        } catch (error) {
+            console.error(error);
         }
     };
 
@@ -39,7 +39,8 @@ export function useProjects() {
 
             setLastPage(pagination.last_page);
             setCurrentPage(page);
-        } catch {
+        } catch (e) {
+            console.error(e);
         } finally {
             setIsLoading(false);
             setIsInitialLoading(false);

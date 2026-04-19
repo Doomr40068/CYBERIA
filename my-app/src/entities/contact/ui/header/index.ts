@@ -1,3 +1,3 @@
-export { default as Header } from './Header';
-export { default as MainHeader } from './MainHeader';
-export { default as StickyHeader } from './StickyHeader';
+export { Header } from './Header';
+export { MainHeader } from './MainHeader';
+export { StickyHeader } from './StickyHeader';

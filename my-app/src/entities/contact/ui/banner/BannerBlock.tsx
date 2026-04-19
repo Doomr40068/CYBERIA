@@ -1,19 +1,10 @@
 'use client';
-
-import { RiTelegram2Fill } from 'react-icons/ri';
-import { BiLogoVk } from 'react-icons/bi';
-import { IoLogoWhatsapp } from 'react-icons/io';
+import { SocialMedia } from '@/entities/contact/ui/social-media';
 import Image from 'next/image';
-import { useContactsContext } from '@/entities/contact/model/ContactContext';
-import Link from 'next/link';
 import { Button } from '@/shared/ui/button';
-import { FromDialog } from '@/features/open-forms/FormDialog';
+import { FormDialog } from '@/features/open-forms/FormDialog';
 
 export function BannerBlock() {
-    const contacts = useContactsContext();
-    if (!contacts) return null;
-    const contactsMap = Object.fromEntries(contacts.map((item) => [item.kay, item.value]));
-
     return (
         <div
             className="
@@ -29,14 +20,14 @@ export function BannerBlock() {
         "
         >
             <div className="w-full lg:w-1/2">
-                <h2 className="text-2xl lg:text-4xl font-bold leading-tight">
+                <h2 className="text-2xl lg:text-4xl font-bold !mb-5 leading-tight">
                     Разрабатываем сложные IT продукты:
                     <br />
                     e-com, веб-сервисы, ИИ
                 </h2>
-                <div className="flex flex-col-reverse gap-4 lg:gap-6">
+                <div className="flex flex-col-reverse lg:flex-row gap-4 lg:gap-6">
                     <div className="flex flex-col font-['Wix_Madefor_Text'] gap-3">
-                        <FromDialog>
+                        <FormDialog>
                             <Button
                                 type="button"
                                 variant="default"
@@ -45,26 +36,10 @@ export function BannerBlock() {
                             >
                                 Обсудить проект
                             </Button>
-                        </FromDialog>
+                        </FormDialog>
 
                         <div className="flex items-center gap-2.5 text-3xl">
-                            <Link
-                                href={contactsMap.telegram}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <RiTelegram2Fill className="fill-white bg-black !p-1.5 rounded-3xl transition-all duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110" />
-                            </Link>
-                            <Link
-                                href={contactsMap.whatsapp}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <IoLogoWhatsapp className="fill-white bg-black !p-1.5 rounded-3xl transition-all duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110" />
-                            </Link>
-                            <Link href={contactsMap.vk} target="_blank" rel="noopener noreferrer">
-                                <BiLogoVk className="fill-white bg-black !p-1.5 rounded-3xl transition-all duration-1000 hover:bg-gradient-to-r hover:from-[#2d41f9] hover:via-[#9e70ff] hover:to-[#36cfff] hover:scale-110" />
-                            </Link>
+                            <SocialMedia IconsclassName="bg-black fill-white border-none " />
                         </div>
                     </div>
 
@@ -72,11 +47,12 @@ export function BannerBlock() {
                         className="
                             !mt-4
                             text-white
+                            justify-center
                             flex
                             bg-black/80
                             gap-4
-                            !py-2 !px-4
-                            rounded-3xl
+                            !py-4 !px-5
+                            rounded-full
                             items-center
                             rotate-[-3deg]
                             w-fit
@@ -89,7 +65,9 @@ export function BannerBlock() {
                             <h3>место</h3>
                         </div>
 
-                        <p className="text-sm">Разработка решений на базе ИИ</p>
+                        <p className="text-sm font-['Wix_Madefor_Text'] ">
+                            Разработка решений на базе ИИ
+                        </p>
                     </div>
                 </div>
             </div>

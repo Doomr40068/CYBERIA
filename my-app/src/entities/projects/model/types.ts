@@ -15,11 +15,6 @@ export interface Project {
     is_case: boolean;
 }
 
-export interface ProjectListForSitemap {
-    slug: string;
-    lastmod: number;
-}
-
 export interface ProjectCategory {
     id: number;
     name: string;

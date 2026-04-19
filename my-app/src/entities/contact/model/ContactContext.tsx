@@ -1,19 +1,17 @@
 'use client';
 
 import { createContext, useContext, ReactNode } from 'react';
-import { Contacts } from '@/entities/contact/model/types';
+import { Contact } from '@/entities/contact/model/types';
 
-const ContactContext = createContext<Contacts[] | null>(null);
+const ContactContext = createContext<Contact[]>([]);
 
 export const useContactsContext = () => {
-    const context = useContext(ContactContext);
-
-    return context;
+    return useContext(ContactContext);
 };
 
 type Props = {
     children: ReactNode;
-    contacts: Contacts[];
+    contacts: Contact[];
 };
 
 export const ContactProvider = ({ children, contacts }: Props) => {

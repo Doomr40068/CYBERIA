@@ -1,1 +1,1 @@
-export { default as Vacancy } from './Vacancy';
+export { Vacancy } from './Vacancy';

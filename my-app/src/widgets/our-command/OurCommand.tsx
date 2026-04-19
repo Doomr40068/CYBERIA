@@ -1,12 +1,12 @@
 import { Button } from '@/shared/ui';
 import Image from 'next/image';
 
-export default function OurCommand() {
+export function OurCommand() {
     return (
         <div className="!py-10 !px-20 lg:flex-row flex flex-col items-center text-center justify-center lg:gap-10 rounded-4xl bg-gradient-to-bl from-[#08158A] via-[#1A2ABE] via-[#2D41F9] via-[#8793FC] to-[#F0F1FF]">
             <div className="lg:w-2/5">
                 <div className=" flex flex-col lg:items-start items-center">
-                    <h2 className="font-bold !mb-5 lg:text-left text-white text-6xl">
+                    <h2 id="about" className="font-bold !mb-5 lg:text-left text-white text-6xl">
                         Наша команда
                     </h2>
                     <p className="text-white lg:w-3/5 lg:text-left w-full !mb-6 font-['Wix_Madefor_Text'] text-2xl font-light ">

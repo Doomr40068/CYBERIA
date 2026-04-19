@@ -1,1 +1,1 @@
-export { default as ReviewCarousel } from './ReviewCarousel';
+export { ReviewCarousel } from './ReviewCarousel';

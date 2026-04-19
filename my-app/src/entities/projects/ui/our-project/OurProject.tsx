@@ -8,19 +8,12 @@ import { useProjects } from '@/entities/projects/model/useProjects';
 export function OurProject() {
     const { projects, categories, loadMore, hasMore, isLoading, error } = useProjects();
 
-    if (isLoading) {
-        return (
-            <div className="flex flex-col items-center !mb-30">
-                <h2 className="text-center !text-4x1 font-bold !mb-12">Наши проекты</h2>
-                <div className="text-center !p-8">Идёт загрузка</div>
-            </div>
-        );
-    }
-
     if (error) {
         return (
             <div className="flex flex-col items-center !mb-30">
-                <h2 className="text-center !text-4x1 font-bold !mb-12">Наши проекты</h2>
+                <h2 id="projects" className="text-center !text-4x1 font-bold !mb-12">
+                    Наши проекты
+                </h2>
                 <div className="text-red-500 text-center !p-8">Ошибка: {error}</div>
             </div>
         );
@@ -28,7 +21,9 @@ export function OurProject() {
 
     return (
         <div className="flex flex-col items-center !mb-30">
-            <h2 className="text-center text-4xl font-bold !mb-12"> Наши проекты </h2>
+            <h2 id="projects" className="text-center text-4xl font-bold !mb-12">
+                Наши проекты
+            </h2>
             <Tabs defaultValue={categories[0]?.id?.toString()} className="w-full">
                 <TabsList
                     onWheel={(e) => {
