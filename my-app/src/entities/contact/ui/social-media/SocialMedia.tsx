@@ -13,7 +13,7 @@ type Props = {
 export function SocialMedia({ className, IconsclassName }: Props) {
     const contacts = useContactsContext();
     const contactsMap = Object.fromEntries(contacts.map((item) => [item.key, item.value]));
-
+    if (!contactsMap) return [];
     return (
         <div className={clsx('flex gap-4 items-center', className)}>
             <div className=" flex items-center gap-2.5 text-4xl">

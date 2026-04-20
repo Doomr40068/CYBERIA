@@ -30,6 +30,7 @@ export function usePosts() {
             setCurrentPage(page);
         } catch (error) {
             console.error(error);
+            setError('Ошибка загрузки проектов');
         } finally {
             setIsLoading(false);
             setIsInitialLoading(false);

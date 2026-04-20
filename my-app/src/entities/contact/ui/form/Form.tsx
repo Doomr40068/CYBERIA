@@ -50,25 +50,27 @@ export function Form() {
 
     if (status) {
         return (
-            <div className="flex items-center justify-center w-full h-full min-h-[400px] relative">
-                <div className="bg-white !p-10 rounded-3xl text-center flex flex-col items-center gap-4 max-w-md w-full relative">
+            <div className="flex items-center justify-center w-full h-full  relative">
+                <div className="bg-white !p-10 rounded-3xl justify-center text-center flex flex-col items-center max-w-md w-full relative">
                     {status === 'success' ? (
-                        <div>
+                        <div className="flex flex-col items-center gap-5">
                             <IoCheckmarkSharp className="border-2 text-black w-14 h-14 !p-3 border-blue-500 rounded-full" />
                             <h2 className="text-3xl font-bold text-black">
                                 Спасибо, ваша заявка отправлена
                             </h2>
-                            <p className="text-black text-2xl">
+                            <p className="text-black text-2xl font-['Wix_Madefor_Text'] ">
                                 В ближайшее время наш менеджер свяжется с вами
                             </p>
                         </div>
                     ) : (
-                        <div>
+                        <div className="flex flex-col items-center gap-5">
                             <RxCross1 className="border-2 text-black w-14 h-14 !p-3 border-blue-500 rounded-full" />
                             <h2 className="text-3xl font-bold text-black">
                                 Упс... Что-то пошло не так
                             </h2>
-                            <p className="text-black text-2xl">Повторите попытку позднее</p>
+                            <p className="text-black font-['Wix_Madefor_Text'] text-2xl">
+                                Повторите попытку позднее
+                            </p>
                         </div>
                     )}
                 </div>
