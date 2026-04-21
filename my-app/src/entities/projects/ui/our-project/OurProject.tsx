@@ -1,13 +1,12 @@
 'use client';
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/ui/tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/ui';
 import Image from 'next/image';
 import { ButtonMore } from '@/features/load-more-projects/ui/ButtonMore';
 import { useProjects } from '@/entities/projects/model/useProjects';
 
 export function OurProject() {
     const { projects, categories, loadMore, hasMore, isLoading, error } = useProjects();
-
     const defaultTab = categories[0]?.id?.toString();
 
     if (error) {
@@ -54,32 +53,40 @@ export function OurProject() {
                         </TabsTrigger>
                     ))}
                 </TabsList>
+                {categories.map((cat) => {
+                    const filteredProjects = cat.id === 0 ? projects : projects.slice(0, 2);
+                    // Так как в бэкенде нет данных для фильтрации, то есть категории, то стоит вот такая заглушка.
+                    return (
+                        <TabsContent key={cat.id} value={String(cat.id)} className="!mt-6">
+                            <h2 className="text-center !mb-10 text-4xl">{cat.name}</h2>
 
-                {categories.map((cat) => (
-                    <TabsContent key={cat.id} value={String(cat.id)} className="!mt-6">
-                        <h2 className="text-center !mb-10 text-4xl">{cat.name}</h2>
-                        <div className="grid grid-cols-2 gap-5">
-                            {projects.map((el) => (
-                                <div key={el.id} className="flex flex-col gap-4">
-                                    <Image
-                                        className="rounded-4xl w-full h-full object-cover"
-                                        src={el.image?.original_url}
-                                        alt={el.title || 'Project'}
-                                        width={300}
-                                        height={280}
-                                        loading="lazy"
-                                    />
-                                    <div>
-                                        <h3 className="font-bold text-xl">{el.title}</h3>
-                                        <p className="text-gray-600">{el.description}</p>
+                            <div className="grid grid-cols-2 gap-5">
+                                {filteredProjects.map((el) => (
+                                    <div key={el.id} className="flex flex-col gap-4">
+                                        <Image
+                                            className="rounded-4xl w-full h-full object-cover"
+                                            src={el.image?.original_url || '/Placeholder.jpg'}
+                                            alt={el.title || 'Project'}
+                                            width={300}
+                                            height={280}
+                                            loading="lazy"
+                                        />
+                                        <div>
+                                            <h3 className="font-bold text-xl">{el.title}</h3>
+                                            <p className="text-gray-600">{el.description}</p>
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
-                        </div>
+                                ))}
+                            </div>
 
-                        <ButtonMore onClick={loadMore} isLoading={isLoading} hasMore={hasMore} />
-                    </TabsContent>
-                ))}
+                            <ButtonMore
+                                onClick={loadMore}
+                                isLoading={isLoading}
+                                hasMore={hasMore}
+                            />
+                        </TabsContent>
+                    );
+                })}
             </Tabs>
         </div>
     );

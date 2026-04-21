@@ -39,12 +39,13 @@ export function Form() {
                 phone: data.phone,
                 comment: data.comment,
             });
-            setLoading(false);
 
             setStatus('success');
         } catch (e) {
             console.error(e);
             setStatus('error');
+        } finally {
+            setLoading(false);
         }
     };
 

@@ -1,5 +1,6 @@
 class ApiClient {
-    private baseUrl = typeof window === 'undefined' ? process.env.NEXT_PUBLIC_API_URL : '';
+    private baseUrl =
+        typeof window === 'undefined' ? process.env.NEXT_PUBLIC_API_URL : 'http://localhost:3000';
 
     private async request<T>(url: string, options?: RequestInit): Promise<T> {
         const fullUrl = `${this.baseUrl}${url}`;
@@ -27,14 +28,16 @@ class ApiClient {
             method: 'GET',
         });
     }
-    post<T>(endpoint: string, body: unknown): Promise<T> {
-        return this.request<T>(endpoint, {
+    post<T>(endpoint: string, data: unknown): Promise<T> {
+        const fullUrl = this.baseUrl + endpoint;
+
+        return fetch(fullUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(body),
-        });
+            body: JSON.stringify(data),
+        }).then((res) => res.json());
     }
 }
 

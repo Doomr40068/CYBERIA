@@ -3,9 +3,9 @@
 import { RiTelegram2Fill } from 'react-icons/ri';
 import { useContactsContext } from '@/entities/contact/model/ContactContext';
 import { Menu } from 'lucide-react';
-import { Sheet, SheetContent, SheetTrigger } from '@/shared/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger } from '@/shared/ui';
 import Link from 'next/link';
-import { Button } from '@/shared/ui/button';
+import { Button } from '@/shared/ui';
 import { FormDialog } from '@/features/open-forms/FormDialog';
 import { NavigationBlock } from '@/widgets/navigation';
 import { NavigationBlockBurger } from '@/widgets/navigation';

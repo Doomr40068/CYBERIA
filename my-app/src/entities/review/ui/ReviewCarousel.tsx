@@ -1,10 +1,10 @@
 'use client';
 
-import { Card, CardContent } from '@/shared/ui/card';
-import { Carousel, CarouselContent, CarouselItem } from '@/shared/ui/carousel';
+import { Card, CardContent } from '@/shared/ui';
+import { Carousel, CarouselContent, CarouselItem } from '@/shared/ui';
 import Image from 'next/image';
 import { Review } from '@/entities/review/model/types';
-import { Button } from '@/shared/ui/button';
+import { Button } from '@/shared/ui';
 
 interface ReviewCarouselProps {
     review: Review[];
@@ -17,6 +17,7 @@ export function ReviewCarousel({ review = [] }: ReviewCarouselProps) {
 
     return (
         <Carousel
+            id="services"
             opts={{
                 align: 'start',
             }}

@@ -7,12 +7,10 @@ import { usePosts } from '@/entities/post/model/usePosts';
 export function News() {
     const { posts, loadMore, isLoading, hasMore, error } = usePosts();
 
-    if (isLoading) {
+    if (isLoading && posts.length === 0) {
         return (
             <div>
-                <h2 id="news" className="text-center items-center !mb-30">
-                    Новости
-                </h2>
+                <h2 className="text-center items-center !mb-30">Новости</h2>
                 <div className="text-4xl text-center !p-8"> Загрузка </div>
             </div>
         );
@@ -20,9 +18,7 @@ export function News() {
     if (error) {
         return (
             <div>
-                <h2 id="news" className="text-center items-center !mb-30">
-                    Новости
-                </h2>
+                <h2 className="text-center items-center !mb-30">Новости</h2>
                 <div className="text-red-500 text-4xl text-center !p-8"> Ошибка {error} </div>
             </div>
         );
@@ -57,7 +53,9 @@ export function News() {
                         <div className="flex gap-4 items-center">
                             <p>📅</p>
                             <p className="text-[#6F7998] text-[14px] font-['Wix_Madefor_Text']">
-                                {item.published_at}
+                                {item.published_at
+                                    ? new Date(item.published_at).toLocaleDateString('ru-RU')
+                                    : '—'}
                             </p>
                         </div>
                     </div>

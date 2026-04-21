@@ -1,7 +1,7 @@
 'use client';
 import { SocialMedia } from '@/entities/contact/ui/social-media';
 import Image from 'next/image';
-import { Button } from '@/shared/ui/button';
+import { Button } from '@/shared/ui';
 import { FormDialog } from '@/features/open-forms/FormDialog';
 
 export function BannerBlock() {

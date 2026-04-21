@@ -1,4 +1,4 @@
-import { Dialog, DialogContent, DialogTrigger } from '@/shared/ui/dialog';
+import { Dialog, DialogContent, DialogTrigger } from '@/shared/ui';
 import { Form } from '@/entities/contact/ui/form/Form';
 
 type Props = {

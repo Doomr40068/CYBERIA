@@ -11,9 +11,8 @@ const wixMadefor = Wix_Madefor_Text({
     display: 'swap',
 });
 
-export default function Footer() {
+export function Footer() {
     const contacts = useContactsContext();
-    if (!contacts) return null;
     const c = Object.fromEntries(contacts.map((item) => [item.key, item.value]));
 
     return (
