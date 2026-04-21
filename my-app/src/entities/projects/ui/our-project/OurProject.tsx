@@ -54,14 +54,13 @@ export function OurProject() {
                     ))}
                 </TabsList>
                 {categories.map((cat) => {
-                    const filteredProjects = cat.id === 0 ? projects : projects.slice(0, 2);
                     // Так как в бэкенде нет данных для фильтрации, то есть категории, то стоит вот такая заглушка.
                     return (
                         <TabsContent key={cat.id} value={String(cat.id)} className="!mt-6">
                             <h2 className="text-center !mb-10 text-4xl">{cat.name}</h2>
 
                             <div className="grid grid-cols-2 gap-5">
-                                {filteredProjects.map((el) => (
+                                {projects.map((el) => (
                                     <div key={el.id} className="flex flex-col gap-4">
                                         <Image
                                             className="rounded-4xl w-full h-full object-cover"
