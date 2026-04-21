@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Unbounded } from 'next/font/google';
 import '@/app/globals.css';
-import { Header, Footer } from '@/entities/contact';
+import { Header, FooterBlock } from '@/entities/contact';
 import { contactAPI } from '@/entities/contact/api/ContactsApi';
 import { ContactProvider } from '@/entities/contact/model/ContactContext';
 
@@ -27,7 +27,7 @@ export default async function RootLayout({
                 <ContactProvider contacts={contacts}>
                     <Header />
                     {children}
-                    <Footer />
+                    <FooterBlock />
                 </ContactProvider>
             </body>
         </html>
