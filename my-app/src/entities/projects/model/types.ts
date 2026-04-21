@@ -1,4 +1,4 @@
-import type { Image, Pagination } from '@/shared/types/Common';
+import type { Image, Pagination } from '@/shared/types/CommonType';
 
 export interface Project {
     id: number;

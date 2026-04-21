@@ -1,4 +1,4 @@
-import type { Pagination } from '@/shared/types/Common';
+import type { Pagination } from '@/shared/types/CommonType';
 
 export interface Author {
     id: number;
