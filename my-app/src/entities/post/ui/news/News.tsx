@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { ButtonMore } from '@/features/load-more-projects/ui/ButtonMore';
-import { usePosts } from '@/entities/post/model/usePosts';
+import { usePosts } from '@/entities/post/model/use-posts';
 
 export function News() {
     const { posts, loadMore, isLoading, hasMore, error } = usePosts();

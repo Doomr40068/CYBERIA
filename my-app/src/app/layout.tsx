@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Unbounded } from 'next/font/google';
 import '@/app/globals.css';
 import { Header, FooterBlock } from '@/entities/contact';
-import { contactAPI } from '@/entities/contact/api/ContactsApi';
+import { contactAPI } from '@/entities/contact/api/contacts-api';
 import { ContactProvider } from '@/entities/contact/model/ContactContext';
 
 const unboundedSemiBold = Unbounded({

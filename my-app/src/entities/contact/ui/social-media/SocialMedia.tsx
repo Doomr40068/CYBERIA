@@ -12,6 +12,7 @@ type Props = {
 
 export function SocialMedia({ className, IconsclassName }: Props) {
     const contacts = useContactsContext();
+    if (!contacts || contacts.length === 0) return null;
     const contactsMap = Object.fromEntries(contacts.map((item) => [item.key, item.value]));
     if (!contactsMap) return [];
     return (

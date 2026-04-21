@@ -3,7 +3,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/ui';
 import Image from 'next/image';
 import { ButtonMore } from '@/features/load-more-projects/ui/ButtonMore';
-import { useProjects } from '@/entities/projects/model/useProjects';
+import { useProjects } from '@/entities/projects/model/use-projects';
 
 export function OurProject() {
     const { projects, categories, loadMore, hasMore, isLoading, error } = useProjects();

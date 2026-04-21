@@ -13,6 +13,7 @@ import { SocialMedia, SocialMediaBurger } from '@/entities/contact/ui/social-med
 
 export function MainHeader() {
     const contacts = useContactsContext();
+    if (!contacts || contacts.length === 0) return null;
     const contactsMap = Object.fromEntries(contacts.map((item) => [item.key, item.value]));
 
     return (

@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect, useCallback } from 'react';
 import { Posts } from '@/entities/post/model/types';
-import { postsAPI } from '@/entities/post/api/PostApi';
+import { postsAPI } from '@/entities/post/api/post-api';
 
 export function usePosts() {
     const [posts, setPosts] = useState<Posts[]>([]);

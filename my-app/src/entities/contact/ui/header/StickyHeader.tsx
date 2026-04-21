@@ -17,6 +17,7 @@ interface StickyHeaderProps {
 
 export function StickyHeader({ show }: StickyHeaderProps) {
     const contacts = useContactsContext();
+    if (!contacts || contacts.length === 0) return null;
     const contactsMap = Object.fromEntries(contacts.map((item) => [item.key, item.value]));
     return (
         <div

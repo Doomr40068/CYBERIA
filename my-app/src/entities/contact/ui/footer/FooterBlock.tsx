@@ -13,6 +13,7 @@ const wixMadefor = Wix_Madefor_Text({
 
 export function FooterBlock() {
     const contacts = useContactsContext();
+    if (!contacts || contacts.length === 0) return null;
     const c = Object.fromEntries(contacts.map((item) => [item.key, item.value]));
 
     return (
