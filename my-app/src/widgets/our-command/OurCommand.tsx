@@ -80,31 +80,15 @@ export function OurCommand() {
             </div>
             <div className="flex lg:w-2/6 md:5/6 w-full flex-col lg:-mb-35 justify-center">
                 <div className="flex justify-end z-30 !-mb-10">
-                    <Image
-                        src="/20240626-MKXO6518_resized 2.png"
-                        alt="Контакты"
-                        width={300}
-                        height={250}
-                    />
+                    <Image src="/TheCommand.png" alt="Контакты" width={300} height={250} />
                 </div>
 
                 <div>
-                    <Image
-                        src="/20240626-MKXO6218_resized 2.png"
-                        alt="Контакты"
-                        width={400}
-                        height={400}
-                    />
+                    <Image src="/SmartMan.png" alt="Контакты" width={400} height={400} />
                 </div>
 
                 <div className="flex justify-end !-mt-25">
-                    <Image
-                        className=""
-                        src="/20240626-MKXO6247_resized 2.png"
-                        alt="Контакты"
-                        width={300}
-                        height={250}
-                    />
+                    <Image className="" src="/Girl.png" alt="Контакты" width={300} height={250} />
                 </div>
             </div>
         </div>

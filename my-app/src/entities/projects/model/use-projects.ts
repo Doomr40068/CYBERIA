@@ -29,8 +29,10 @@ export function useProjects() {
 
             const response = await projectAPI.getProjectsPaginated(page, 4);
 
-            const newProjects = response.data.items;
-            const pagination = response.data.pagination;
+            const newProjects = response?.data?.items ?? [];
+            const pagination = response?.data?.pagination ?? [];
+
+            if (!pagination) return;
 
             if (shouldConcat) {
                 setProjects((prev) => [...prev, ...newProjects]);

@@ -81,7 +81,7 @@ export function BannerBlock() {
                         h-auto
                         object-contain
                     "
-                    src="/20240626-MKXO6518_resized 2.png"
+                    src="/TheCommand.png"
                     alt="картинка"
                     width={300}
                     height={100}

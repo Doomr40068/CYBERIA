@@ -12,9 +12,7 @@ export function OurProject() {
     if (error) {
         return (
             <div className="flex flex-col items-center !mb-30">
-                <h2 id="projects" className="text-center !text-4x1 font-bold !mb-12">
-                    Наши проекты
-                </h2>
+                <h2 className="text-center text-4x1 font-bold !mb-12">Наши проекты</h2>
                 <div className="text-red-500 text-center !p-8">Ошибка: {error}</div>
             </div>
         );

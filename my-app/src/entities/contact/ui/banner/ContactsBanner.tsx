@@ -10,12 +10,7 @@ export function ContactsBanner() {
             className="flex lg:flex-row flex-col-reverse justify-center rounded-4xl gap-5 !p-10 !my-24 !mx-5 bg-[#6ECCFF] bg-gradient-to-r from-[#70D0FF] to-[#2D41F9] "
         >
             <div className=" flex justify-center items-center">
-                <Image
-                    src="/20240626-MKXO6218_resized 2.png"
-                    alt="Контакты"
-                    width={400}
-                    height={300}
-                />
+                <Image src="/SmartMan.png" alt="Контакты" width={400} height={300} />
             </div>
             <div className="text-white lg:w-6/12 lg:items-start items-center flex flex-col justify-center ">
                 <p className="text-3xl lg:text-5xl w-full lg:text-left text-center font-medium text-white">

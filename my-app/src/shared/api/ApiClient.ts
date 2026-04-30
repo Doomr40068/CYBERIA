@@ -6,11 +6,13 @@ class ApiClient {
         const fullUrl = `${this.baseUrl}${url}`;
         const res = await fetch(fullUrl, options);
 
+        const data = await res.json();
+
         if (!res.ok) {
-            throw new Error(`HTTP error: ${res.status} ${res.statusText}`);
+            throw new Error(data.message || `HTTP error: ${res.status} ${res.statusText}`);
         }
 
-        return res.json();
+        return data;
     }
 
     get<T>(endpoint: string, params?: Record<string, string | number>): Promise<T> {
@@ -29,15 +31,13 @@ class ApiClient {
         });
     }
     post<T>(endpoint: string, data: unknown): Promise<T> {
-        const fullUrl = this.baseUrl + endpoint;
-
-        return fetch(fullUrl, {
+        return this.request<T>(endpoint, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data),
-        }).then((res) => res.json());
+        });
     }
 }
 

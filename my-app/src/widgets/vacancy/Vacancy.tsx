@@ -37,9 +37,7 @@ export function Vacancy() {
                         <div className="flex flex-wrap justify-center gap-6 !pb-5">
                             <div className="bg-white w-40 sm:w-52 md:w-60 lg:w-64 rounded-2xl shadow-xl flex flex-col">
                                 <div className="flex flex-col h-32 sm:h-36 md:h-40">
-                                    <div className="flex-1 bg-gradient-to-br from-cyan-200 to-blue-500 rounded-t-xl flex items-center justify-center text-xs sm:text-sm">
-                                        Backend illustration
-                                    </div>
+                                    <div className="flex-1 bg-gradient-to-br from-cyan-200 to-blue-500 rounded-t-xl flex items-center justify-center text-xs sm:text-sm"></div>
                                     <div className="flex-1 bg-black text-white flex items-center justify-center text-xs sm:text-sm">
                                         Разрабатываем Backend часть проекта
                                     </div>
@@ -59,9 +57,7 @@ export function Vacancy() {
 
                             <div className="bg-white w-40 sm:w-52 md:w-60 lg:w-64 rounded-2xl shadow-xl flex flex-col-reverse">
                                 <div className="flex flex-col-reverse h-32 sm:h-36 md:h-40]">
-                                    <div className="flex-1 bg-gradient-to-br from-purple-500 to-blue-600 rounded-b-xl flex items-center justify-center text-white text-xs sm:text-sm">
-                                        Frontend illustration
-                                    </div>
+                                    <div className="flex-1 bg-gradient-to-br from-purple-500 to-blue-600 rounded-b-xl flex items-center justify-center text-white text-xs sm:text-sm"></div>
                                     <div className="flex-1 bg-black text-white flex items-center justify-center text-xs sm:text-sm">
                                         Разрабатываем Frontend часть проекта
                                     </div>

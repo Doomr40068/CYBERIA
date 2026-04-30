@@ -17,8 +17,10 @@ export function usePosts() {
             setError(null);
 
             const response = await postsAPI.getPostsPaginated(page, 6);
-            const newPosts = response.data.items;
-            const pagination = response.data.pagination;
+            const newPosts = response?.data?.items ?? [];
+            const pagination = response?.data?.pagination ?? [];
+
+            if (!pagination) return;
 
             if (shouldConcat) {
                 setPosts((prev) => [...prev, ...newPosts]);
@@ -30,7 +32,7 @@ export function usePosts() {
             setCurrentPage(page);
         } catch (error) {
             console.error(error);
-            setError('Ошибка загрузки проектов');
+            setError('Ошибка загрузки новостей');
         } finally {
             setIsLoading(false);
             setIsInitialLoading(false);

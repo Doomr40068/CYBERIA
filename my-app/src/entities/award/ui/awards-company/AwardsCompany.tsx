@@ -16,7 +16,7 @@ export function AwardsCompany({ awards }: AwardsCompanyProps) {
                             <Image
                                 className="lg:w-44 lg:h-44 w-24 h-24 rounded-full object-cover"
                                 src={el?.award_icon.original_url}
-                                alt="award"
+                                alt={el?.title}
                                 width={150}
                                 height={150}
                             />
